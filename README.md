@@ -72,10 +72,6 @@ License
 ---
 See [LICENSE](/LICENSE)
 
-Donate
----
-Bitcoin: `17eAafhEYnxmnj2nQ92tDFdDzATL27gcj`
-
 Credits
 ---
 NetSerializer  
