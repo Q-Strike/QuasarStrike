@@ -33,7 +33,18 @@ Features
 * Pass The Hash
 * WMI Exec
 * In Memory .NET Method Execution. 
+* Powershell via System.Management.Automation dll
+* Token Manipulation
+* Pass the Hash
+    * WMI Exec
+    * SMB Exec
 
+In Progress
+* Situational Checks
+* Logging
+* Privilege Escalation
+* Persistence
+* Lateral Movement Techniques
 
 
 Requirements
