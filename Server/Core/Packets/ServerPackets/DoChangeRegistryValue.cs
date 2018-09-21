@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
 using xServer.Core.Networking;
 using xServer.Core.Registry;
 

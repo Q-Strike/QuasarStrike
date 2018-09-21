@@ -19,7 +19,7 @@ namespace xServer.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -461,7 +461,7 @@ namespace xServer.Properties {
         ///
         ///    Quasar is distributed in the hope that it will be useful,
         ///    but WITHOUT ANY WARRANTY; without even the implied warranty of
-        ///    MERCHANTABILITY or FITNESS FOR A PARTICULAR PUR [rest of string was truncated]&quot;;.
+        ///    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TermsOfUse {
             get {

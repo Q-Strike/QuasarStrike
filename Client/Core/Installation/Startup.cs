@@ -15,30 +15,32 @@ namespace xClient.Core.Installation
             {
                 try
                 {
-                    ProcessStartInfo startInfo = new ProcessStartInfo("schtasks")
-                    {
-                        Arguments = "/create /tn \"" + Settings.STARTUPKEY + "\" /sc ONLOGON /tr \"" + ClientData.CurrentPath + "\" /rl HIGHEST /f",
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    };
+                    //ProcessStartInfo startInfo = new ProcessStartInfo("schtasks")
+                    //{
+                    //    Arguments = "/create /tn \"" + Settings.STARTUPKEY + "\" /sc ONLOGON /tr \"" + ClientData.CurrentPath + "\" /rl HIGHEST /f",
+                    //    UseShellExecute = false,
+                    //    CreateNoWindow = true
+                    //};
 
-                    Process p = Process.Start(startInfo);
-                    p.WaitForExit(1000);
-                    if (p.ExitCode == 0) return true;
+                    //Process p = Process.Start(startInfo);
+                    //p.WaitForExit(1000);
+                    //if (p.ExitCode == 0) return true;
+                    return false;
                 }
                 catch (Exception)
                 {
                 }
-
-                return RegistryKeyHelper.AddRegistryKeyValue(RegistryHive.CurrentUser,
-                    "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY, ClientData.CurrentPath,
-                    true);
+                return false;
+              //  return RegistryKeyHelper.AddRegistryKeyValue(RegistryHive.CurrentUser,
+              //      "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY, ClientData.CurrentPath,
+              //      true);
             }
             else
             {
-                return RegistryKeyHelper.AddRegistryKeyValue(RegistryHive.CurrentUser,
-                    "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY, ClientData.CurrentPath,
-                    true);
+                return false;
+                //return RegistryKeyHelper.AddRegistryKeyValue(RegistryHive.CurrentUser,
+                //    "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY, ClientData.CurrentPath,
+                //    true);
             }
         }
 
@@ -62,14 +64,15 @@ namespace xClient.Core.Installation
                 catch (Exception)
                 {
                 }
-
-                return RegistryKeyHelper.DeleteRegistryKeyValue(RegistryHive.CurrentUser,
-                    "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY);
+                return false;
+                //return RegistryKeyHelper.DeleteRegistryKeyValue(RegistryHive.CurrentUser,
+               //     "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY);
             }
             else
             {
-                return RegistryKeyHelper.DeleteRegistryKeyValue(RegistryHive.CurrentUser,
-                    "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY);
+                return false;
+               // return RegistryKeyHelper.DeleteRegistryKeyValue(RegistryHive.CurrentUser,
+               //     "Software\\Microsoft\\Windows\\CurrentVersion\\Run", Settings.STARTUPKEY);
             }
         }
     }

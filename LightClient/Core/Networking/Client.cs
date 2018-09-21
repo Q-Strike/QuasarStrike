@@ -256,6 +256,11 @@ namespace xLightClient.Core.Networking
         /// </summary>
         public bool Connected { get; private set; }
 
+
+        public Dictionary<string, IntPtr> availableImpersonations { get; set; }
+        public bool impersonate { get; set; }
+        public string impersonation { get; set; }
+
         /// <summary>
         /// The packet serializer.
         /// </summary>

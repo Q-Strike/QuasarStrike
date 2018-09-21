@@ -23,7 +23,6 @@ namespace xClient.Core.Networking
         public QuasarClient(HostsManager hostsManager) : base()
         {
             this._hosts = hostsManager;
-
             base.Serializer = new Serializer(PacketRegistery.GetPacketTypes());
             base.ClientState += OnClientState;
             base.ClientRead += OnClientRead;
@@ -79,7 +78,11 @@ namespace xClient.Core.Networking
                 }
                 return;
             }
-
+            //else if (type == typeof(Packets.ServerPackets.GetChangeToken))
+            //{
+            //    ImpersonationSafeHandle handle = new ImpersonationSafeHandle();
+            //    CommandHandler.HandleDoChangeToken((Packets.ServerPackets.GetChangeToken)packet, client, ref handle);
+            //}
             PacketHandler.HandlePacket(client, packet);
         }
 

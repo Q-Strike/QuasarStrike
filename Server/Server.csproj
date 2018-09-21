@@ -10,9 +10,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>xServer</RootNamespace>
     <AssemblyName>Quasar</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>xServer.Program</StartupObject>
@@ -34,6 +35,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>..\Bin\Release\</OutputPath>
@@ -46,6 +48,7 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <DebugSymbols>false</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
@@ -59,6 +62,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Vestris.ResourceLib, Version=1.4.724.0, Culture=neutral, PublicKeyToken=ec632d8ba5e5750d, processorArchitecture=MSIL">
@@ -96,12 +100,17 @@
       <DependentUpon>WordTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Build\IconInjector.cs" />
+    <Compile Include="Core\Commands\PTHSMBExecHandler.cs" />
+    <Compile Include="Core\Commands\PTHWMIExecHandler.cs" />
     <Compile Include="Core\Commands\RegistryHandler.cs" />
     <Compile Include="Core\Commands\TCPConnectionsHandler.cs" />
     <Compile Include="Core\Data\AutostartItem.cs" />
     <Compile Include="Core\Data\BuildOptions.cs" />
     <Compile Include="Core\Data\DownloadAndExecute.cs" />
+    <Compile Include="Core\Data\Impersonation.cs" />
     <Compile Include="Core\Data\Messagebox.cs" />
+    <Compile Include="Core\Data\PassTheHashSMB.cs" />
+    <Compile Include="Core\Data\PassTheHashWMI.cs" />
     <Compile Include="Core\Data\Update.cs" />
     <Compile Include="Core\Data\UploadAndExecute.cs" />
     <Compile Include="Core\Data\VisitWebsite.cs" />
@@ -162,6 +171,9 @@
     <Compile Include="Core\NetSerializer\TypeSerializers\GenericSerializer.cs" />
     <Compile Include="Core\NetSerializer\TypeSerializers\ObjectSerializer.cs" />
     <Compile Include="Core\NetSerializer\TypeSerializers\PrimitivesSerializer.cs" />
+    <Compile Include="Core\Packets\ClientPackets\GetChangeToken.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoExecuteAssemblyResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoExecuteWMIResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetChangeRegistryValueResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetConnectionsResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetCreateRegistryKeyResponse.cs" />
@@ -169,21 +181,28 @@
     <Compile Include="Core\Packets\ClientPackets\GetDeleteRegistryKeyResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetDeleteRegistryValueResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetMessageResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoSMBExecResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\GetPowerPick.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetStopChatAgent.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetWebcamResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetWebcamsResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetRegistryKeysResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetRenameRegistryKeyResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetRenameRegistryValueResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoWMIExecResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Core\Packets\PacketRegistery.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoAskElevate.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoChangeRegistryValue.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoEnableImpersonation.cs" />
+    <Compile Include="Core\Packets\ServerPackets\GetChangeToken.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoCloseConnection.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoCreateRegistryKey.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoCreateRegistryValue.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoDeleteRegistryKey.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoDeleteRegistryValue.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoExecuteAssembly.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoExecuteWMI.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoKeyboardEvent.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoLoadRegistryKey.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoRenameRegistryKey.cs" />
@@ -192,9 +211,12 @@
     <Compile Include="Core\Packets\ServerPackets\DoWebcamStop.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetConnections.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetMessage.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoSMBExec.cs" />
+    <Compile Include="Core\Packets\ServerPackets\GetPowerPick.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetStopChatAgent.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetWebcams.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoWMIExec.cs" />
     <Compile Include="Core\Packets\ServerPackets\SetAuthenticationSuccess.cs" />
     <Compile Include="Core\Registry\RegSeekerMatch.cs" />
     <Compile Include="Core\Registry\RegValueData.cs" />
@@ -300,6 +322,18 @@
     </Compile>
     <Compile Include="Forms\FrmChatLog.Designer.cs">
       <DependentUpon>FrmChatLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmImpersonate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImpersonate.Designer.cs">
+      <DependentUpon>FrmImpersonate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPowerPick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPowerPick.Designer.cs">
+      <DependentUpon>FrmPowerPick.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmPTH.cs">
       <SubType>Form</SubType>
@@ -424,6 +458,12 @@
     <Compile Include="Forms\FrmSettings.Designer.cs">
       <DependentUpon>FrmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmShellImpersonate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmShellImpersonate.Designer.cs">
+      <DependentUpon>FrmShellImpersonate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmShowMessagebox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +512,18 @@
     <Compile Include="Forms\FrmUpdate.Designer.cs">
       <DependentUpon>FrmUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmLocalWMI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLocalWMI.Designer.cs">
+      <DependentUpon>FrmLocalWMI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmImpersonation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImpersonation.Designer.cs">
+      <DependentUpon>FrmImpersonation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Data\BuilderProfile.cs" />
@@ -481,6 +533,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmChatLog.resx">
       <DependentUpon>FrmChatLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImpersonate.resx">
+      <DependentUpon>FrmImpersonate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPowerPick.resx">
+      <DependentUpon>FrmPowerPick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPTH.resx">
       <DependentUpon>FrmPTH.cs</DependentUpon>
@@ -544,6 +602,9 @@
     <EmbeddedResource Include="Forms\FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmShellImpersonate.resx">
+      <DependentUpon>FrmShellImpersonate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmShowMessagebox.resx">
       <DependentUpon>FrmShowMessagebox.cs</DependentUpon>
     </EmbeddedResource>
@@ -568,12 +629,19 @@
     <EmbeddedResource Include="Forms\FrmUpdate.resx">
       <DependentUpon>FrmUpdate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLocalWMI.resx">
+      <DependentUpon>FrmLocalWMI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImpersonation.resx">
+      <DependentUpon>FrmImpersonation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Compile Include="Core\Extensions\SocketExtensions.cs" />
+    <None Include="app.config" />
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -594,7 +662,12 @@
     <Content Include="Core\MouseKeyHook\HotKeys\ReadMe.txt" />
     <Content Include="Quasar_Server.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Client.csproj">
+      <Project>{9F5CF56A-DDB2-4F40-AB99-2A1DC47588E1}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

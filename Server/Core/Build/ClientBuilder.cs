@@ -29,13 +29,8 @@ namespace xServer.Core.Build
             //Gets assembly info from Client.bin, but what about the extra assemblies?
             AssemblyDefinition asmDef = AssemblyDefinition.ReadAssembly("client.bin");
 
-
-            //This looks to be where the modules are added.
-            //Can most likely modify this to build a "light" client.
-            //typeDef.FullName contains the information for the module. So we can create a custom array to create a light module, that can then be upgraded later.
             foreach (var typeDef in asmDef.Modules[0].Types)
             {
-                MessageBox.Show(typeDef.FullName);
                 if (typeDef.FullName == "xClient.Config.Settings")
                 {
                     foreach (var methodDef in typeDef.Methods)

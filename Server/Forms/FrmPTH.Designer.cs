@@ -36,20 +36,20 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.line5 = new xServer.Controls.Line();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTarget = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtDomain = new System.Windows.Forms.TextBox();
+            this.txtHash = new System.Windows.Forms.TextBox();
+            this.txtCommand = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtService = new System.Windows.Forms.TextBox();
+            this.chkComspec = new System.Windows.Forms.CheckBox();
+            this.chkSMB = new System.Windows.Forms.CheckBox();
+            this.txtSleep = new System.Windows.Forms.TextBox();
             this.line1 = new xServer.Controls.Line();
             this.label8 = new System.Windows.Forms.Label();
             this.btnExecutePTH = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblService = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -116,48 +116,87 @@
             this.line5.TabIndex = 16;
             this.line5.TabStop = false;
             // 
-            // textBox1
+            // txtTarget
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(86, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(196, 20);
-            this.textBox1.TabIndex = 17;
-            this.toolTip1.SetToolTip(this.textBox1, "IP Address or Hostname");
+            this.txtTarget.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTarget.Location = new System.Drawing.Point(86, 37);
+            this.txtTarget.Name = "txtTarget";
+            this.txtTarget.Size = new System.Drawing.Size(196, 20);
+            this.txtTarget.TabIndex = 1;
+            this.toolTip1.SetToolTip(this.txtTarget, "IP Address or Hostname");
             // 
-            // textBox3
+            // txtDomain
             // 
-            this.textBox3.Location = new System.Drawing.Point(86, 188);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(196, 20);
-            this.textBox3.TabIndex = 19;
-            this.toolTip1.SetToolTip(this.textBox3, "(Optional) Can additionall be specified in the username field as username@test.lo" +
+            this.txtDomain.Location = new System.Drawing.Point(86, 188);
+            this.txtDomain.Name = "txtDomain";
+            this.txtDomain.Size = new System.Drawing.Size(196, 20);
+            this.txtDomain.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.txtDomain, "(Optional) Can additionall be specified in the username field as username@test.lo" +
         "cal");
             // 
-            // textBox4
+            // txtHash
             // 
-            this.textBox4.Location = new System.Drawing.Point(86, 89);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(196, 20);
-            this.textBox4.TabIndex = 20;
-            this.toolTip1.SetToolTip(this.textBox4, "Can be either combined NTLM or just the NT portion.");
+            this.txtHash.Location = new System.Drawing.Point(86, 89);
+            this.txtHash.Name = "txtHash";
+            this.txtHash.Size = new System.Drawing.Size(196, 20);
+            this.txtHash.TabIndex = 3;
+            this.toolTip1.SetToolTip(this.txtHash, "Can be either combined NTLM or just the NT portion.");
             // 
-            // textBox5
+            // txtCommand
             // 
-            this.textBox5.Location = new System.Drawing.Point(86, 214);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(196, 20);
-            this.textBox5.TabIndex = 21;
-            this.toolTip1.SetToolTip(this.textBox5, "If this field is not specified, the module will just check to ensure the Username" +
+            this.txtCommand.Location = new System.Drawing.Point(86, 214);
+            this.txtCommand.Name = "txtCommand";
+            this.txtCommand.Size = new System.Drawing.Size(196, 20);
+            this.txtCommand.TabIndex = 5;
+            this.toolTip1.SetToolTip(this.txtCommand, "If this field is not specified, the module will just check to ensure the Username" +
         " & Hash have access to WMI on the targt system.");
             // 
-            // textBox6
+            // txtUsername
             // 
-            this.textBox6.Location = new System.Drawing.Point(86, 63);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(196, 20);
-            this.textBox6.TabIndex = 22;
-            this.toolTip1.SetToolTip(this.textBox6, "Username can be in the format: username or username@test.local");
+            this.txtUsername.Location = new System.Drawing.Point(86, 63);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(196, 20);
+            this.txtUsername.TabIndex = 2;
+            this.toolTip1.SetToolTip(this.txtUsername, "Username can be in the format: username or username@test.local");
+            // 
+            // txtService
+            // 
+            this.txtService.Location = new System.Drawing.Point(86, 266);
+            this.txtService.Name = "txtService";
+            this.txtService.Size = new System.Drawing.Size(196, 20);
+            this.txtService.TabIndex = 7;
+            this.toolTip1.SetToolTip(this.txtService, "Default = 20 Char Random Name\r\nSpecifies the service name that is created and del" +
+        "eted on the target.\r\n");
+            // 
+            // chkComspec
+            // 
+            this.chkComspec.AutoSize = true;
+            this.chkComspec.Location = new System.Drawing.Point(177, 290);
+            this.chkComspec.Name = "chkComspec";
+            this.chkComspec.Size = new System.Drawing.Size(121, 17);
+            this.chkComspec.TabIndex = 9;
+            this.chkComspec.Text = "Prepend COMSPEC";
+            this.toolTip1.SetToolTip(this.chkComspec, "Prepends %COMSPEC% /C to the command");
+            this.chkComspec.UseVisualStyleBackColor = true;
+            // 
+            // chkSMB
+            // 
+            this.chkSMB.AutoSize = true;
+            this.chkSMB.Location = new System.Drawing.Point(86, 290);
+            this.chkSMB.Name = "chkSMB";
+            this.chkSMB.Size = new System.Drawing.Size(85, 17);
+            this.chkSMB.TabIndex = 8;
+            this.chkSMB.Text = "Force SMB1";
+            this.toolTip1.SetToolTip(this.chkSMB, "Forces the command to execute using SMB1");
+            this.chkSMB.UseVisualStyleBackColor = true;
+            // 
+            // txtSleep
+            // 
+            this.txtSleep.Location = new System.Drawing.Point(86, 240);
+            this.txtSleep.Name = "txtSleep";
+            this.txtSleep.Size = new System.Drawing.Size(196, 20);
+            this.txtSleep.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtSleep, "Default = 150ms. \r\nSets the sleep value in milliseconds.");
             // 
             // line1
             // 
@@ -182,63 +221,24 @@
             this.btnExecutePTH.Location = new System.Drawing.Point(259, 127);
             this.btnExecutePTH.Name = "btnExecutePTH";
             this.btnExecutePTH.Size = new System.Drawing.Size(75, 23);
-            this.btnExecutePTH.TabIndex = 25;
+            this.btnExecutePTH.TabIndex = 10;
             this.btnExecutePTH.Text = "Execute";
             this.btnExecutePTH.UseVisualStyleBackColor = true;
             this.btnExecutePTH.Click += new System.EventHandler(this.btnExecutePTHWmi_Click);
             // 
-            // textBox7
+            // lblService
             // 
-            this.textBox7.Location = new System.Drawing.Point(86, 240);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(196, 20);
-            this.textBox7.TabIndex = 27;
-            this.toolTip1.SetToolTip(this.textBox7, "Default = 20 Char Random Name\r\nSpecifies the service name that is created and del" +
-        "eted on the target.\r\n");
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 243);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Service Name";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(177, 290);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(121, 17);
-            this.checkBox1.TabIndex = 30;
-            this.checkBox1.Text = "Prepend COMSPEC";
-            this.toolTip1.SetToolTip(this.checkBox1, "Prepends %COMSPEC% /C to the command");
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(86, 290);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(85, 17);
-            this.checkBox2.TabIndex = 31;
-            this.checkBox2.Text = "Force SMB1";
-            this.toolTip1.SetToolTip(this.checkBox2, "Forces the command to execute using SMB1");
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(86, 266);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(196, 20);
-            this.textBox2.TabIndex = 33;
-            this.toolTip1.SetToolTip(this.textBox2, "Default = 150ms. \r\nSets the sleep value in milliseconds.");
+            this.lblService.AutoSize = true;
+            this.lblService.Location = new System.Drawing.Point(10, 269);
+            this.lblService.Name = "lblService";
+            this.lblService.Size = new System.Drawing.Size(74, 13);
+            this.lblService.TabIndex = 26;
+            this.lblService.Text = "Service Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 269);
+            this.label2.Location = new System.Drawing.Point(12, 243);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 32;
@@ -248,21 +248,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(346, 332);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(346, 318);
+            this.Controls.Add(this.txtSleep);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.chkSMB);
+            this.Controls.Add(this.chkComspec);
+            this.Controls.Add(this.txtService);
+            this.Controls.Add(this.lblService);
             this.Controls.Add(this.btnExecutePTH);
             this.Controls.Add(this.line1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtCommand);
+            this.Controls.Add(this.txtHash);
+            this.Controls.Add(this.txtDomain);
+            this.Controls.Add(this.txtTarget);
             this.Controls.Add(this.line5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -272,6 +272,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmPTH";
             this.Text = "Pass the Hash";
+            this.Load += new System.EventHandler(this.FrmPTH_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,20 +287,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private Controls.Line line5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTarget;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtDomain;
+        private System.Windows.Forms.TextBox txtHash;
+        private System.Windows.Forms.TextBox txtCommand;
+        private System.Windows.Forms.TextBox txtUsername;
         private Controls.Line line1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnExecutePTH;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtService;
+        private System.Windows.Forms.Label lblService;
+        private System.Windows.Forms.CheckBox chkComspec;
+        private System.Windows.Forms.CheckBox chkSMB;
+        private System.Windows.Forms.TextBox txtSleep;
         private System.Windows.Forms.Label label2;
     }
 }

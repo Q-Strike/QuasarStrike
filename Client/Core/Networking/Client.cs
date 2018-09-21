@@ -255,7 +255,6 @@ namespace xClient.Core.Networking
         /// Gets if the client is currently connected to a server.
         /// </summary>
         public bool Connected { get; private set; }
-
         /// <summary>
         /// The packet serializer.
         /// </summary>
@@ -723,7 +722,6 @@ namespace xClient.Core.Networking
                 _proxyClients.Add(new ReverseProxyClient(command, this));
             }
         }
-
         public ReverseProxyClient GetReverseProxyByConnectionId(int connectionId)
         {
             lock (_proxyClientsLock)

@@ -131,6 +131,7 @@ namespace xServer.Core.Networking
         }
         public static void writeLog(string logText, string clientName)
         {
+            //TODO: Convert this to a JSON array for easier parsing.
             string logPath = Directory.GetCurrentDirectory() + "/logs";
             string fullPath = logPath + "\\" + clientName + ".log";
             //Check if log directory exists

