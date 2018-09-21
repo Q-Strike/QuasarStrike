@@ -30,6 +30,11 @@ Features
 * Reverse Proxy (SOCKS5)
 * Password Recovery (Common Browsers and FTP Clients)
 * Registry Editor
+* Pass The Hash
+* WMI Exec
+* In Memory .NET Method Execution. 
+
+
 
 Requirements
 ---
